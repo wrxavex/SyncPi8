@@ -45,6 +45,8 @@ def doShutdown():
     if readyShutdown:
         print ("Countdown Over Shutdown now")
         ledB.off()
+        os.system("flite -t 'Warning commencing power down'")
+        os.system("sudo shutdown -h now")
         sys.exit()
 
 
