@@ -1,4 +1,4 @@
----- slave script ----
+#---- slave script ----
 #!/bin/sh
 
 SERVICE='omxplayer-sync'
@@ -12,4 +12,4 @@ omxplayer-sync -b -l /home/pi/SyncPi8/synctest.mp4 &
 fi
 done
 
----- end slave script ----
+#---- end slave script ----
