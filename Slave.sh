@@ -7,7 +7,7 @@ if ps ax | grep -v grep | grep $SERVICE > /dev/null
 then
 echo "running" #>>/dev/null
 else
-omxplayer-sync -b -l /home/pi/Desktop/SyncPi8/synctest.mp4 &
+omxplayer-sync -b -l /home/pi/SyncPi8/synctest.mp4 &
 
 fi
 done
