@@ -1,5 +1,6 @@
-mport RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 import time
+import os
 
 # SyncPi Hardware Test
 # P1
@@ -10,22 +11,62 @@ RGB_ENABLE = 1; RGB_DISABLE = 0
 
 # LED CONFIG Set GPIO Ports
 
+GPIO.setmode(GPIO.BCM)
+
 RGB_RED = 17; RGB_GREEN = 27; RGB_BLUE = 22
 RGB = [RGB_RED, RGB_GREEN, RGB_BLUE]
 
-def led_setup():
-    GPIO.setmode(GPIO.BCM)
-    for val in RGB:
-        GPIO.setup(val, GPIO.OUT)
+BTN1 = 23; BTN2 = 24
+BUTTON = [BTN1, BTN2]
 
-def main():
-    led_setup()
+def led_setup():
+    for val1 in RGB:
+        GPIO.setup(val1, GPIO.OUT)
+
+def button_setup():
+    for val2 in BUTTON:
+        GPIO.setup(val2, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
+def RGB_blink(speed):
     for val in RGB:
         GPIO.output(val, RGB_ENABLE)
         print val, "LED ON"
-        time.sleep(1)
+        time.sleep(speed)
         GPIO.output(val, RGB_DISABLE)
         print val, "LED OFF"
+
+def main():
+    led_setup()
+    button_setup()
+    count1 = 0
+    count2 = 0
+    btn1_closed = True
+    btn2_closed = True
+    while True:
+        btn1_state = GPIO.input(BTN1)
+        if btn1_state and btn1_closed and btn2_closed:
+            print "blink start"
+            RGB_blink(1)
+            print "blink over"
+            btn1_closed = False
+        elif btn1_state == False and btn1_closed == False:
+            count1+=1
+            print "CLOSE Button 1 %s times" % count1
+            btn1_closed = True
+
+        btn2_state = GPIO.input(BTN2)
+        if btn2_state and btn2_closed and btn1_closed:
+            print "blink start"
+            RGB_blink(2)
+            print "blink over"
+            btn2_closed = False
+        elif btn2_state == False and btn2_closed == False:
+            count2+=1
+            print "CLOSE Button 2 %s times" % count2
+            btn2_closed = True
+
+        time.sleep(0.1)
+
         
 try:
     main()
@@ -33,3 +74,8 @@ try:
 finally:
     GPIO.cleanup()
     print("Closed Everything. END")
+
+
+
+
+
