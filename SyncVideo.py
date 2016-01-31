@@ -137,8 +137,9 @@ def main():
     while True:
         btn1_state = GPIO.input(BTN1)
         if btn1_state != btn1_state_init and btn1_closed and btn2_closed:
-            print "blink start"
+            print "Run Shutdown Script"
             RGB_blink(RGB_RED)
+            doShutdown()
             print "blink over"
             btn1_closed = False
         elif btn1_state == btn1_state_init and btn1_closed == False:
