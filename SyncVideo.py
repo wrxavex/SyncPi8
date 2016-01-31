@@ -75,10 +75,10 @@ def RGB_blink(val):
     for i in range(0,3, 1):
         GPIO.output(val, RGB_ENABLE)
         print val, "LED ON"
-        time.sleep(0.5)
+        time.sleep(0.3)
         GPIO.output(val, RGB_DISABLE)
         print val, "LED OFF"
-        time.sleep(0.5)
+        time.sleep(0.3)
 
 
 def VideoFileState():
@@ -101,12 +101,14 @@ def SyncFile():
             shutil.copy(usb_dir+local_video_file, base_dir+usb_video_file)
             print 'Copy Success, Video Updated'
             NewVideoFile = False
-            GPIO.output(RGB_BLUE, RGB_DISABLE)
+            RGB_blink(RGB_BLUE)
+
             pass
         except Error as err:
             print 'Error'
     else:
         'No New USB Video, Already Updated'
+        RGB_blink(RGB_GREEN)
 
 
 def doShutdown():
