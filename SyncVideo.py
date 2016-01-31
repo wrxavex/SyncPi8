@@ -85,6 +85,7 @@ def VideoFileState():
         GPIO.output(RGB_BLUE, RGB_ENABLE)
     else:
         print "No New Video FIle Found"
+        GPIO.output(RGB_GREEN, RGB_ENABLE)
 
 def SyncFile():
     global NewVideoFile
