@@ -141,9 +141,15 @@ def main():
         if btn1_state != btn1_state_init and btn1_closed and btn2_closed:
             print "Run Shutdown Script"
             RGB_blink(RGB_RED)
-            readyShutdown = True
-            doShutdown()
+            if btn1_state != btn1_state_init:
+                readyShutdown = True
+                doShutdown()
+            GPIO.output(RGB_GREEN, RGB_ENABLE)
+            GPIO.output(RGB_RED, RGB_ENABLE)
             print "When Run this is bug "
+            time.sleep(1)
+            GPIO.output(RGB_GREEN, RGB_DISABLE)
+            GPIO.output(RGB_RED, RGB_DISABLE)
             btn1_closed = False
         elif btn1_state == btn1_state_init and btn1_closed == False:
             count1+=1
