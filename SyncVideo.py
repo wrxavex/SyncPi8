@@ -67,8 +67,6 @@ def RGB_blink(speed):
         GPIO.output(val, RGB_DISABLE)
         print val, "LED OFF"
 
-def USB_Video_Sync():
-    os.system("sudo python SyncVideoFromUSB.py")
 
 def VideoFileState():
     global NewVideoFile
@@ -118,7 +116,7 @@ def main():
         btn2_state = GPIO.input(BTN2)
         if btn2_state != btn2_state_init and btn2_closed and btn1_closed:
             print "Call USB Video Sync Script"
-            USB_Video_Sync()
+            SyncFile()
             print "USB Video Sync Script Done !"
             btn2_closed = False
         elif btn2_state == btn2_state_init and btn2_closed == False:
