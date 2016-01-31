@@ -44,7 +44,7 @@ def RGB_blink(speed):
         print val, "LED OFF"
 
 def USB_Video_Sync():
-    os.system("SyncVideoFromUSB.py")
+    os.system("sudo python SyncVideoFromUSB.py")
 
 def main():
     led_setup()
