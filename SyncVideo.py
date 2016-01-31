@@ -112,7 +112,6 @@ def SyncFile():
 
 
 def doShutdown():
-    global button1StatePre
     global readyShutdown
 
 
@@ -130,6 +129,7 @@ def main():
     button_setup()
     button_init()
     VideoFileState()
+    global readyShutdown
     count1 = 0
     count2 = 0
     btn1_closed = True
@@ -139,6 +139,7 @@ def main():
         if btn1_state != btn1_state_init and btn1_closed and btn2_closed:
             print "Run Shutdown Script"
             RGB_blink(RGB_RED)
+            readyShutdown = True
             doShutdown()
             print "When Run this is bug "
             btn1_closed = False
