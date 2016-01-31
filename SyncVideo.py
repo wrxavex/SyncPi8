@@ -15,14 +15,14 @@ usb_video_file = 'video4.mp4'
 # getting local video size
 try:
     videoinLocalSize = os.path.getsize(base_dir+local_video_file)
-except Error as err:
-    print 'Error'
+except:
+    print 'No local video File'
 
 # getting usb video size
 try:
     videoinUsbSize = os.path.getsize(usb_dir+usb_video_file)
-except Error as err:
-    print 'Error'
+except:
+    print 'Noe Usb File'
 
 # display them
 print "Video in Usb: ", videoinUsbSize
