@@ -13,10 +13,16 @@ local_video_file = 'synctest.mp4'
 usb_video_file = 'video4.mp4'
 
 # getting local video size
-videoinLocalSize = os.path.getsize(base_dir+local_video_file)
+try:
+    videoinLocalSize = os.path.getsize(base_dir+local_video_file)
+except Error as err:
+    print 'Error'
 
 # getting usb video size
-videoinUsbSize = os.path.getsize(usb_dir+usb_video_file)
+try:
+    videoinUsbSize = os.path.getsize(usb_dir+usb_video_file)
+except Error as err:
+    print 'Error'
 
 # display them
 print "Video in Usb: ", videoinUsbSize
