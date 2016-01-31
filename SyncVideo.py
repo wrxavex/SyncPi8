@@ -104,8 +104,8 @@ def SyncFile():
             RGB_blink(RGB_BLUE)
 
             pass
-        except Error as err:
-            print 'Error'
+        except:
+            print 'Copy Error'
     else:
         'No New USB Video, Already Updated'
         RGB_blink(RGB_GREEN)
