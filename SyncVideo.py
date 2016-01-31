@@ -17,12 +17,14 @@ try:
     videoinLocalSize = os.path.getsize(base_dir+local_video_file)
 except:
     print 'No local video File'
+    videoinLocalSize = 0
 
 # getting usb video size
 try:
     videoinUsbSize = os.path.getsize(usb_dir+usb_video_file)
 except:
     print 'Noe Usb File'
+    videoinUsbSize = 0
 
 # display them
 print "Video in Usb: ", videoinUsbSize
@@ -76,7 +78,7 @@ def RGB_blink(speed):
 
 def VideoFileState():
     global NewVideoFile
-    if videoinLocalSize != videoinUsbSize:
+    if videoinLocalSize != videoinUsbSize and videoinLocalSize > 0 and videoinUsbSize > 0 :
         print "New Video found!"
         NewVideoFile = True
     if NewVideoFile:
