@@ -141,6 +141,7 @@ def main():
         if btn1_state != btn1_state_init and btn1_closed and btn2_closed:
             print "Run Shutdown Script"
             RGB_blink(RGB_RED)
+            btn1_state = GPIO.input(BTN1)
             if btn1_state != btn1_state_init:
                 readyShutdown = True
                 doShutdown()
