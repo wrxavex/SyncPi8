@@ -70,14 +70,15 @@ def button_setup():
         GPIO.setup(val2, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 def RGB_blink(val):
-    for val in RGB:
-        GPIO.output(val, RGB_DISABLE)
+    for color in RGB:
+        GPIO.output(color, RGB_DISABLE)
     for i in range(0,3, 1):
         GPIO.output(val, RGB_ENABLE)
         print val, "LED ON"
         time.sleep(0.5)
         GPIO.output(val, RGB_DISABLE)
         print val, "LED OFF"
+        time.sleep(0.5)
 
 
 def VideoFileState():
