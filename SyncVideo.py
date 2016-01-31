@@ -98,7 +98,7 @@ def SyncFile():
     if NewVideoFile:
         try:
             print 'Copying'
-            shutil.copy(usb_dir+local_video_file, base_dir+usb_video_file)
+            shutil.copy(usb_dir+usb_video_file, base_dir+local_video_file)
             print 'Copy Success, Video Updated'
             NewVideoFile = False
             RGB_blink(RGB_BLUE)
