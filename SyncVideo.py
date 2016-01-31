@@ -91,12 +91,15 @@ def SyncFile():
         try:
             print 'Copying'
             shutil.copy(usb_dir+local_video_file, base_dir+usb_video_file)
-            print 'Copy Success'
+            print 'Copy Success, Video Updated'
             NewVideoFile = False
             GPIO.output(RGB_BLUE, RGB_DISABLE)
             pass
         except Error as err:
             print 'Error'
+    else:
+        'No New USB Video, Already Updated'
+
 
 
 
