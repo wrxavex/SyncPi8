@@ -1,9 +1,14 @@
 import RPi.GPIO as GPIO
 import time
 import os
+import sys
 import shutil
 
+# Ready Shutdown State
+readyShutdown = False
 
+
+# New Video File Check State
 NewVideoFile = False
 
 # Setting dir path and file name
@@ -29,9 +34,6 @@ except:
 # display them
 print "Video in Usb: ", videoinUsbSize
 print "Video in Local: ", videoinLocalSize
-
-
-
 
 
 # SyncPi Hardware Test
@@ -67,11 +69,11 @@ def button_setup():
     for val2 in BUTTON:
         GPIO.setup(val2, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-def RGB_blink(speed):
-    for val in RGB:
+def RGB_blink(val):
+    for i in range(0,3, 1):
         GPIO.output(val, RGB_ENABLE)
         print val, "LED ON"
-        time.sleep(speed)
+        time.sleep(0.5)
         GPIO.output(val, RGB_DISABLE)
         print val, "LED OFF"
 
@@ -104,6 +106,18 @@ def SyncFile():
         'No New USB Video, Already Updated'
 
 
+def doShutdown():
+    global button1StatePre
+    global readyShutdown
+
+
+    print ("Countdown for Shutdown in 3sec")
+    if readyShutdown:
+        print ("Countdown Over Shutdown now")
+        os.system("flite -t 'System Shutdown down'")
+        os.system("sudo shutdown -h now")
+        sys.exit()
+
 
 
 def main():
@@ -119,7 +133,7 @@ def main():
         btn1_state = GPIO.input(BTN1)
         if btn1_state != btn1_state_init and btn1_closed and btn2_closed:
             print "blink start"
-            RGB_blink(1)
+            RGB_blink(RGB_RED)
             print "blink over"
             btn1_closed = False
         elif btn1_state == btn1_state_init and btn1_closed == False:
