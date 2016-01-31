@@ -140,7 +140,7 @@ def main():
             print "Run Shutdown Script"
             RGB_blink(RGB_RED)
             doShutdown()
-            print "blink over"
+            print "When Run this is bug "
             btn1_closed = False
         elif btn1_state == btn1_state_init and btn1_closed == False:
             count1+=1
