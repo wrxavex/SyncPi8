@@ -49,6 +49,7 @@ def USB_Video_Sync():
 def main():
     led_setup()
     button_setup()
+    button_init()
     count1 = 0
     count2 = 0
     btn1_closed = True
