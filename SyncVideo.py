@@ -23,7 +23,7 @@ except:
 try:
     videoinUsbSize = os.path.getsize(usb_dir+usb_video_file)
 except:
-    print 'Noe Usb File'
+    print 'No Usb Video File'
     videoinUsbSize = 0
 
 # display them
@@ -83,6 +83,8 @@ def VideoFileState():
         NewVideoFile = True
     if NewVideoFile:
         GPIO.output(RGB_BLUE, RGB_ENABLE)
+    else:
+        print "No New Video FIle Found"
 
 def SyncFile():
     global NewVideoFile
