@@ -70,7 +70,7 @@ def main():
         if btn2_state != btn2_state_init and btn2_closed and btn1_closed:
             print "Call USB Video Sync Script"
             USB_Video_Sync()
-            print "USB Video Sync Script"
+            print "USB Video Sync Script Done !"
             btn2_closed = False
         elif btn2_state == btn2_state_init and btn2_closed == False:
             count2+=1
