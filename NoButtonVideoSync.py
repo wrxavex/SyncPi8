@@ -64,7 +64,9 @@ def SyncFile():
 
 try:
     def main():
+        global NewVideoFile
         VideoFileState()
+        print NewVideoFile
         while NewVideoFile:
             SyncFile()
 
