@@ -4,7 +4,7 @@ import time
 
 
 # record time
-time.strftime('%X %x %Z')
+print time.strftime('%X %x %Z')
 
 
 # New Video File Check State
