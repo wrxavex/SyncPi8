@@ -61,14 +61,19 @@ def SyncFile():
         'No New USB Video, Already Updated'
         RGB_blink(RGB_GREEN)
 
-
-try:
-    main():
+def main():
     global NewVideoFile
     VideoFileState()
     print NewVideoFile
     while NewVideoFile:
-        SyncFile()
+    SyncFile()
+
+
+
+
+try:
+    main()
+
 
 
 
