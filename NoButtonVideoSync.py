@@ -1,5 +1,10 @@
 import os
 import shutil
+import time
+
+
+# record time
+time.strftime('%X %x %Z')
 
 
 # New Video File Check State
