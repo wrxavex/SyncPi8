@@ -71,7 +71,6 @@ try:
 
 
 finally:
-    GPIO.cleanup()
     print("Closed Everything. END")
 
 
