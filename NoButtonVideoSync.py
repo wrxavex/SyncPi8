@@ -61,9 +61,17 @@ def SyncFile():
         'No New USB Video, Already Updated'
         RGB_blink(RGB_GREEN)
 
-def main():
-    VideoFileState()
-    while NewVideoFile:
-        SyncFile()
+
+try:
+    def main():
+        VideoFileState()
+        while NewVideoFile:
+            SyncFile()
+
+
+
+finally:
+    GPIO.cleanup()
+    print("Closed Everything. END")
 
 
