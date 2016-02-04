@@ -33,10 +33,9 @@ print "Video in Local: ", videoinLocalSize
 def VideoFileState():
     global NewVideoFile
     if videoinLocalSize != videoinUsbSize and videoinLocalSize > 0 and videoinUsbSize > 0 :
-        print "New Video found!"
         NewVideoFile = True
     if NewVideoFile:
-        GPIO.output(RGB_BLUE, RGB_ENABLE)
+        print "New Video found!"
     else:
         print "No New Video FIle Found"
         GPIO.output(RGB_GREEN, RGB_ENABLE)
@@ -47,19 +46,15 @@ def SyncFile():
     if NewVideoFile:
         try:
             print 'Copying'
-            GPIO.output(RGB_GREEN, RGB_ENABLE)
             shutil.copy(usb_dir+usb_video_file, base_dir+local_video_file)
-            GPIO.output(RGB_GREEN, RGB_DISABLE)
             print 'Copy Success, Video Updated'
             NewVideoFile = False
-            RGB_blink(RGB_BLUE)
 
             pass
         except:
             print 'Copy Error'
     else:
         'No New USB Video, Already Updated'
-        RGB_blink(RGB_GREEN)
 
 def main():
     global NewVideoFile
