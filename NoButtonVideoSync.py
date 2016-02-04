@@ -43,7 +43,6 @@ def VideoFileState():
         print "New Video found!"
     else:
         print "No New Video FIle Found"
-        GPIO.output(RGB_GREEN, RGB_ENABLE)
 
 def SyncFile():
     global NewVideoFile
@@ -68,16 +67,8 @@ def main():
     while NewVideoFile:
         SyncFile()
 
-
-
-
 try:
     main()
 
-
-
-
 finally:
     print("Closed Everything. END")
-
-
