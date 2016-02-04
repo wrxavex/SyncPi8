@@ -66,7 +66,7 @@ def main():
     VideoFileState()
     print NewVideoFile
     while NewVideoFile:
-    SyncFile()
+        SyncFile()
 
 
 
