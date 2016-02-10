@@ -6,7 +6,7 @@ import RPi.GPIO as GPIO
  
 #Setup the GPIOs as outputs - only 4 and 17 are available
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(4, GPIO.OUT)
+GPIO.setup(5, GPIO.OUT)
 GPIO.setup(17, GPIO.OUT)
  
 #Colours
