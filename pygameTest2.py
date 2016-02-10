@@ -13,8 +13,6 @@ GPIO.setup(17, GPIO.OUT)
 WHITE = (255,255,255)
  
 os.putenv('SDL_FBDEV', '/dev/fb1')
-os.putenv('SDL_MOUSEDRV', 'TSLIB')
-os.putenv('SDL_MOUSEDEV', '/dev/input/touchscreen')
  
 pygame.init()
 pygame.mouse.set_visible(False)
