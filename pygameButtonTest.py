@@ -80,9 +80,9 @@ while True:
             sleep(3)
 
     sleep(0.1)
-    timenow = time.strftime('%Z %X %x')
+    timenow = time.strftime('%Z %x %X')
     lcd.fill((0,0,0))
-    text_surface = font_date.render(u'%s計數'%timenow, True, WHITE)
+    text_surface = font_date.render(u'%s'%timenow, True, WHITE)
     rect = text_surface.get_rect(center=(160,200))
     lcd.blit(text_surface, rect)
     pygame.display.update()
