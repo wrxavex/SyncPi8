@@ -77,7 +77,7 @@ while True:
 
     sleep(0.1)
     timenow = time.strftime('%X %x %Z')
-    lcd.fill(v)
+    lcd.fill(0,0,0)
     text_surface = font_date.render(u'%s計數'%timenow, True, WHITE)
     rect = text_surface.get_rect(center=(240,200))
     lcd.blit(text_surface, rect)
