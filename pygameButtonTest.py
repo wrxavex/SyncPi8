@@ -90,7 +90,7 @@ while True:
     text_surface = font_date.render(u'%s'%timenow, True, WHITE)
     text_surface_hostname = font_hostname.render(u'%s'%hostname, True, WHITE)
     rect = text_surface.get_rect(center=(160,200))
-    rect_hostname = text_surface_hostname.get_rect(center=(160,120))
+    rect_hostname = text_surface_hostname.get_rect(center=(160,60))
     lcd.blit(text_surface, rect)
     lcd.blit(text_surface_hostname, rect_hostname)
     pygame.display.update()
