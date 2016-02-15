@@ -10,4 +10,4 @@ def get_ip_address(ifname):
         struct.pack('256s', ifname[:15])
     )[20:24])
 
-get_ip_address('eth0')
+print get_ip_address('eth0')
