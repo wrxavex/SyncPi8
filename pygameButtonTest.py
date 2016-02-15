@@ -7,6 +7,10 @@ import time
 from time import sleep
 import RPi.GPIO as GPIO
 
+# Set timezone
+os.environ['TZ'] = 'Asia/Taipei'
+time.tzset()
+
 count = 0
 count1 = 0
 count2 = 0
