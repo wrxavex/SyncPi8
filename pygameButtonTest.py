@@ -33,6 +33,7 @@ pygame.display.update()
  
 font_big = pygame.font.Font("msjh.ttc", 72)
 font_small = pygame.font.Font("msjh.ttc", 36)
+font_date = pygame.font.Font("msjh.ttc", 24)
 def button_check(k):
     global button_pre
     global count1
@@ -76,8 +77,8 @@ while True:
 
     sleep(0.1)
     timenow = time.strftime('%X %x %Z')
-
-    text_surface = font_small.render(u'%s計數'%timenow, True, WHITE)
+    lcd.fill(v)
+    text_surface = font_date.render(u'%s計數'%timenow, True, WHITE)
     rect = text_surface.get_rect(center=(240,200))
     lcd.blit(text_surface, rect)
     pygame.display.update()
