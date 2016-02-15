@@ -79,7 +79,7 @@ while True:
     timenow = time.strftime('%Z %X %x')
     lcd.fill((0,0,0))
     text_surface = font_date.render(u'%s計數'%timenow, True, WHITE)
-    rect = text_surface.get_rect(center=(240,120))
+    rect = text_surface.get_rect(center=(160,200))
     lcd.blit(text_surface, rect)
     pygame.display.update()
 
