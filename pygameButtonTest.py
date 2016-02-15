@@ -7,6 +7,7 @@ import time
 import fcntl
 import struct
 import platform
+import socket
 from time import sleep
 import RPi.GPIO as GPIO
 
