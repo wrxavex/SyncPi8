@@ -4,9 +4,23 @@
 import pygame
 import os
 import time
+import fcntl
+import struct
 import platform
 from time import sleep
 import RPi.GPIO as GPIO
+
+
+
+def get_ip_address(ifname):
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    return socket.inet_ntoa(fcntl.ioctl(
+        s.fileno(),
+        0x8915,  # SIOCGIFADDR
+        struct.pack('256s', ifname[:15])
+    )[20:24])
+
+myip = get_ip_address('eth0')
 
 # Set timezone
 
@@ -41,7 +55,9 @@ pygame.display.update()
 font_big = pygame.font.Font("msjh.ttc", 72)
 font_small = pygame.font.Font("msjh.ttc", 36)
 font_date = pygame.font.Font("msjh.ttc", 24)
-font_hostname = pygame.font.Font("msjh.ttc", 32)
+font_hostname = pygame.font.Font("msjh.ttc", 24)
+font_myip = pygame.font.Font("msjh.ttc", 24)
+
 def button_check(k):
     global button_pre
     global count1
@@ -72,10 +88,10 @@ while True:
             count = button_check(k)
             print count
             lcd.fill(v)
-            text_surface = font_big.render(u'按鈕 %d'%k, True, WHITE)
+            text_surface = font_big.render(u'按下%d'%k, True, WHITE)
             rect = text_surface.get_rect(center=(160,120))
             lcd.blit(text_surface, rect)
-            text_surface = font_small.render(u'%d計數'%count, True, WHITE)
+            text_surface = font_small.render(u'按了%d次'%count, True, WHITE)
             rect = text_surface.get_rect(center=(240,200))
             lcd.blit(text_surface, rect)
             if button_pre !=k:
@@ -89,10 +105,13 @@ while True:
     lcd.fill((0,0,0))
     text_surface = font_date.render(u'%s'%timenow, True, WHITE)
     text_surface_hostname = font_hostname.render(u'%s'%hostname, True, WHITE)
+    text_surface_myip = font_myip.render(u'%s'%hostname, True, WHITE)
     rect = text_surface.get_rect(center=(160,200))
     rect_hostname = text_surface_hostname.get_rect(center=(160,60))
+    rect_myip = text_myip.get_rect(center=(160,100))
     lcd.blit(text_surface, rect)
     lcd.blit(text_surface_hostname, rect_hostname)
+    lcd.blit(text_surface_myip, rect_myip)
     pygame.display.update()
 
 
