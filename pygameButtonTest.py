@@ -4,10 +4,13 @@
 import pygame
 import os
 import time
+import platform
 from time import sleep
 import RPi.GPIO as GPIO
 
 # Set timezone
+
+hostname = platform.node()
 os.environ['TZ'] = 'Asia/Taipei'
 time.tzset()
 
@@ -38,6 +41,7 @@ pygame.display.update()
 font_big = pygame.font.Font("msjh.ttc", 72)
 font_small = pygame.font.Font("msjh.ttc", 36)
 font_date = pygame.font.Font("msjh.ttc", 24)
+font_hostname = pygame.font.Font("msjh.ttc", 32)
 def button_check(k):
     global button_pre
     global count1
@@ -81,10 +85,14 @@ while True:
 
     sleep(0.1)
     timenow = time.strftime('%Z %x %X')
+
     lcd.fill((0,0,0))
     text_surface = font_date.render(u'%s'%timenow, True, WHITE)
+    text_surface_hostname = font_hostname.render(u'%s'%hostname, True, WHITE)
     rect = text_surface.get_rect(center=(160,200))
+    rect_hostname = text_surface_hostname.get_rect(center=(160,120))
     lcd.blit(text_surface, rect)
+    lcd.blit(text_surface_hostname, rect_hostname)
     pygame.display.update()
 
 
