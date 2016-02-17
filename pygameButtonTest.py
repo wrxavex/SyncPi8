@@ -29,6 +29,8 @@ hostname = platform.node()
 os.environ['TZ'] = 'Asia/Taipei'
 time.tzset()
 
+fontfile = "/home/pi/SyncPi8/msjh.ttc"
+
 count = 0
 count1 = 0
 count2 = 0
@@ -53,11 +55,11 @@ lcd = pygame.display.set_mode((320, 240))
 lcd.fill((0,0,0))
 pygame.display.update()
  
-font_big = pygame.font.Font("msjh.ttc", 72)
-font_small = pygame.font.Font("msjh.ttc", 36)
-font_date = pygame.font.Font("msjh.ttc", 24)
-font_hostname = pygame.font.Font("msjh.ttc", 24)
-font_myip = pygame.font.Font("msjh.ttc", 24)
+font_big = pygame.font.Font(fontfile, 72)
+font_small = pygame.font.Font(fontfile, 36)
+font_date = pygame.font.Font(fontfile, 24)
+font_hostname = pygame.font.Font(fontfile, 24)
+font_myip = pygame.font.Font(fontfile, 24)
 
 def button_check(k):
     global button_pre
