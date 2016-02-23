@@ -121,23 +121,23 @@ def main():
         for (k, v) in button_map.items():
             if not GPIO.input(k):
                 count = button_check(k)
+                tft_check_button(k, count)
                 print count
-                lcd.fill(v)
-                text_surface = font_big.render(u'按下%d' % k, True, WHITE)
-                rect = text_surface.get_rect(center=(160, 120))
-                lcd.blit(text_surface, rect)
-                text_surface = font_small.render(u'按了%d次' % count, True, WHITE)
-                rect = text_surface.get_rect(center=(240, 200))
-                lcd.blit(text_surface, rect)
-                if button_pre != k:
-                    pygame.display.update()
-                button_pre = k
-                sleep(3)
-
         sleep(0.1)
         time_now = time.strftime('%x %X')
-
         tft_update(time_now, video_status)
+
+
+def tft_check_button(k, count):
+    lcd.fill((0,0,0))
+    text_surface = font_big.render(u'按下%d' % k, True, WHITE)
+    rect = text_surface.get_rect(center=(160, 120))
+    lcd.blit(text_surface, rect)
+    text_surface = font_small.render(u'按了%d次' % count, True, WHITE)
+    rect = text_surface.get_rect(center=(240, 200))
+    lcd.blit(text_surface, rect)
+    pygame.display.update()
+    time.sleep(1)
 
 
 def tft_update(time_now, video_status):
@@ -161,6 +161,7 @@ def tft_update(time_now, video_status):
     lcd.blit(text_surface_have_new_video, rect_have_new_video)
 
     pygame.display.update()
+
 
 
 if __name__ == '__main__':
