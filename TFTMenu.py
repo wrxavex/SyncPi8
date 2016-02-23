@@ -11,8 +11,6 @@ import get_ip
 import NoButtonVideoSync as VS
 
 my_ip = get_ip.myip
-time_now = time.strftime('%x %X')
-
 
 def read_sync_setting(filename):
     f = open(filename, 'r+w')
@@ -97,9 +95,9 @@ def button_check(k):
     global count3
     global count4
     global video_status
-    global time_now
     if k == 23 and button_pre != 23:
         count1 += 1
+        time_now = time.strftime('%x %X')
         tft_update(time_now, 'Copying')
         VS.SyncFile(usb_video_file)
         tft_update(time_now, 'Copy Success, Video Updated')
