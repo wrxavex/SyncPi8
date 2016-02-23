@@ -41,6 +41,11 @@ if 'ID=8' in player_setting:
 print usb_video_file
 
 VS.VideoFileState(usb_video_file)
+if VS.NewVideoFile:
+    video_status = '有新影片'
+else:
+    video_status = '沒有新影片'
+
 print VS.NewVideoFile
 
 # Set timezone
@@ -90,6 +95,7 @@ def button_check(k):
     global count2
     global count3
     global count4
+    global video_status
     if k == 23 and button_pre != 23:
         count1 += 1
         VS.SyncFile(usb_video_file)
@@ -129,17 +135,17 @@ def main():
                 sleep(3)
 
         sleep(0.1)
-        time_now = time.strftime('%Z %x %X')
+        time_now = time.strftime('%x %X')
 
-        tft_update(time_now, 'Copying')
+        tft_update(time_now, video_status)
 
 
 def tft_update(time_now, video_Status):
     lcd.fill((0, 0, 0))
-    text_surface_time = font_date.render(u'現在時間：%s' % time_now, True, WHITE)
+    text_surface_time = font_date.render(u'%s' % time_now, True, WHITE)
     text_surface_hostname = font_hostname.render(u'%s' % hostname, True, WHITE)
     text_surface_myip = font_myip.render(u'IP:%s' % my_ip, True, WHITE)
-    text_surface_setting = font_setting.render(u'設定值：%s' % player_setting, True, WHITE)
+    text_surface_setting = font_setting.render(u'%s' % player_setting, True, WHITE)
     text_surface_have_new_video = font_have_new_video.render(u'影片狀態：%s' % video_Status, True, WHITE)
 
     rect = text_surface_time.get_rect(center=(160, 200))
