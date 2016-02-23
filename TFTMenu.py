@@ -9,7 +9,6 @@ import RPi.GPIO as GPIO
 
 import get_ip
 import NoButtonVideoSync as VS
-import TFT_update as TF
 
 my_ip = get_ip.myip
 
@@ -114,7 +113,7 @@ def main():
     while True:
         # Scan the buttons
         for (k, v) in button_map.items():
-            if GPIO.input(k) == False:
+            if not GPIO.input(k):
                 count = button_check(k)
                 print count
                 lcd.fill(v)
@@ -130,10 +129,32 @@ def main():
                 sleep(3)
 
         sleep(0.1)
-        timenow = time.strftime('%Z %x %X')
+        time_now = time.strftime('%Z %x %X')
 
-        TF.TFT_update()
+        tft_update(time_now, 'Copying')
 
+
+def tft_update(time_now, Video_Status):
+    lcd.fill((0, 0, 0))
+    text_surface_time = font_date.render(u'%s' % time_now, True, WHITE)
+    text_surface_hostname = font_hostname.render(u'%s' % hostname, True, WHITE)
+    text_surface_myip = font_myip.render(u'%s' % my_ip, True, WHITE)
+    text_surface_setting = font_setting.render(u'%s' % player_setting, True, WHITE)
+    text_surface_have_new_video = font_have_new_video.render(u'New Video is %s' % VS.NewVideoFile, True, WHITE)
+
+    rect = text_surface_time.get_rect(center=(160, 200))
+    rect_hostname = text_surface_hostname.get_rect(center=(160, 40))
+    rect_myip = text_surface_myip.get_rect(center=(160, 80))
+    rect_setting = text_surface_setting.get_rect(center=(160,120))
+    rect_have_new_video = text_surface_have_new_video.get_rect(center=(160, 160))
+
+    lcd.blit(text_surface_time, rect)
+    lcd.blit(text_surface_hostname, rect_hostname)
+    lcd.blit(text_surface_myip, rect_myip)
+    lcd.blit(text_surface_setting,rect_setting)
+    lcd.blit(text_surface_have_new_video, rect_have_new_video)
+
+    pygame.display.update()
 
 
 if __name__ == '__main__':
