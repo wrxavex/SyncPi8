@@ -11,6 +11,7 @@ import get_ip
 import NoButtonVideoSync as VS
 
 my_ip = get_ip.myip
+time_now = time.strftime('%x %X')
 
 
 def read_sync_setting(filename):
