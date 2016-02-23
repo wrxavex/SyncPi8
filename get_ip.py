@@ -2,10 +2,6 @@ import socket
 import fcntl
 import struct
 
-
-def_ip = '127.0.0.1'
-
-
 def get_ip_address(ifname):
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     return socket.inet_ntoa(fcntl.ioctl(
@@ -14,3 +10,4 @@ def get_ip_address(ifname):
         struct.pack('256s', ifname[:15])
     )[20:24])
 
+myip = get_ip_address('eth0')

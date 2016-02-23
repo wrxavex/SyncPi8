@@ -10,7 +10,7 @@ import RPi.GPIO as GPIO
 
 import get_ip
 
-myip = get_ip.get_ip_address('eth0')
+myip = get_ip.myip
 
 # Set timezone
 
