@@ -130,7 +130,7 @@ def main():
                     tft_check_button(u'更改模式', count)
                 if k == 5 or k == 24:
                     tft_check_button(u'未使用此鈕', count)
-        sleep(0.1)
+        sleep(1)
         time_now = time.strftime('%x %X')
         tft_update(time_now, video_status)
 
