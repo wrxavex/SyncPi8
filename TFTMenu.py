@@ -136,11 +136,11 @@ def main():
 
 def tft_update(time_now, video_Status):
     lcd.fill((0, 0, 0))
-    text_surface_time = font_date.render(u'%s' % time_now, True, WHITE)
+    text_surface_time = font_date.render(u'現在時間：%s' % time_now, True, WHITE)
     text_surface_hostname = font_hostname.render(u'%s' % hostname, True, WHITE)
-    text_surface_myip = font_myip.render(u'%s' % my_ip, True, WHITE)
-    text_surface_setting = font_setting.render(u'%s' % player_setting, True, WHITE)
-    text_surface_have_new_video = font_have_new_video.render(u'New Video is %s' % video_Status, True, WHITE)
+    text_surface_myip = font_myip.render(u'IP:%s' % my_ip, True, WHITE)
+    text_surface_setting = font_setting.render(u'設定值：%s' % player_setting, True, WHITE)
+    text_surface_have_new_video = font_have_new_video.render(u'影片狀態：%s' % video_Status, True, WHITE)
 
     rect = text_surface_time.get_rect(center=(160, 200))
     rect_hostname = text_surface_hostname.get_rect(center=(160, 40))
