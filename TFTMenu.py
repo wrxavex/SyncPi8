@@ -41,7 +41,7 @@ if 'ID=8' in player_setting:
 
 print usb_video_file
 
-VS.VideoFileState()
+VS.VideoFileState(usb_video_file)
 print VS.NewVideoFile
 
 # Set timezone
