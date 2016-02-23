@@ -13,3 +13,4 @@ fi
 done
 
 #---- end slave script ----
+w
