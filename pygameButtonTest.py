@@ -58,6 +58,7 @@ font_hostname = pygame.font.Font(font_file, 24)
 font_myip = pygame.font.Font(font_file, 24)
 font_setting = pygame.font.Font(font_file,24)
 
+
 def button_check(k):
     global button_pre
     global count1
@@ -81,7 +82,9 @@ def button_check(k):
     else:
         return count
 
+
 def main():
+    global button_pre
     while True:
         # Scan the buttons
         for (k, v) in button_map.items():
