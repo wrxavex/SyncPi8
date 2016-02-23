@@ -124,7 +124,12 @@ def main():
         for (k, v) in button_map.items():
             if not GPIO.input(k):
                 count = button_check(k)
-                tft_check_button(k, count)
+                if k == 23:
+                    tft_check_button('影片更新鈕', count)
+                if k == 22:
+                    tft_check_button('更改模式', count)
+                else:
+                    tft_check_button(k, count)
         sleep(0.1)
         time_now = time.strftime('%x %X')
         tft_update(time_now, video_status)
