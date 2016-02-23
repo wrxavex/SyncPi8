@@ -129,7 +129,7 @@ def main():
                 if k == 22:
                     tft_check_button('更改模式', count)
                 else:
-                    tft_check_button(k, count)
+                    tft_check_button(str(k), count)
         sleep(0.1)
         time_now = time.strftime('%x %X')
         tft_update(time_now, video_status)
@@ -137,7 +137,7 @@ def main():
 
 def tft_check_button(k, count):
     lcd.fill((0,0,0))
-    text_surface = font_big.render(u'按下%d' % k, True, WHITE)
+    text_surface = font_big.render(u'按下%s' % k, True, WHITE)
     rect = text_surface.get_rect(center=(160, 120))
     lcd.blit(text_surface, rect)
     text_surface = font_small.render(u'按了%d次' % count, True, WHITE)
