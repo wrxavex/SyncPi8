@@ -62,7 +62,7 @@ def SyncFile(usb_video_file):
         except:
             print 'Copy Error'
     else:
-        'No New USB Video, Already Updated'
+        return 'No New USB Video, Already Updated'
 
 
 def main():
