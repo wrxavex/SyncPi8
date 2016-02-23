@@ -121,7 +121,7 @@ def main():
             if not GPIO.input(k):
                 count = button_check(k)
                 if k == 23:
-                    tft_check_button(u'影片更新鈕', count
+                    tft_check_button(u'影片更新鈕', count)
                     sleep(1)
                     time_now = time.strftime('%x %X')
                     tft_update(time_now, 'Copying')
