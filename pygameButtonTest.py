@@ -75,38 +75,41 @@ def button_check(k):
     else:
         return count
 
+def main():
+    while True:
+        # Scan the buttons
+        for (k, v) in button_map.items():
+            if GPIO.input(k) == False:
+                count = button_check(k)
+                print count
+                lcd.fill(v)
+                text_surface = font_big.render(u'按下%d' % k, True, WHITE)
+                rect = text_surface.get_rect(center=(160, 120))
+                lcd.blit(text_surface, rect)
+                text_surface = font_small.render(u'按了%d次' % count, True, WHITE)
+                rect = text_surface.get_rect(center=(240, 200))
+                lcd.blit(text_surface, rect)
+                if button_pre != k:
+                    pygame.display.update()
+                button_pre = k
+                sleep(3)
 
-while True:
-    # Scan the buttons
-    for (k, v) in button_map.items():
-        if GPIO.input(k) == False:
-            count = button_check(k)
-            print count
-            lcd.fill(v)
-            text_surface = font_big.render(u'按下%d' % k, True, WHITE)
-            rect = text_surface.get_rect(center=(160, 120))
-            lcd.blit(text_surface, rect)
-            text_surface = font_small.render(u'按了%d次' % count, True, WHITE)
-            rect = text_surface.get_rect(center=(240, 200))
-            lcd.blit(text_surface, rect)
-            if button_pre != k:
-                pygame.display.update()
-            button_pre = k
-            sleep(3)
+        sleep(0.1)
+        timenow = time.strftime('%Z %x %X')
 
-    sleep(0.1)
-    timenow = time.strftime('%Z %x %X')
-
-    lcd.fill((0, 0, 0))
-    text_surface = font_date.render(u'%s' % timenow, True, WHITE)
-    text_surface_hostname = font_hostname.render(u'%s' % hostname, True, WHITE)
-    text_surface_myip = font_myip.render(u'%s' % myip, True, WHITE)
-    rect = text_surface.get_rect(center=(160, 200))
-    rect_hostname = text_surface_hostname.get_rect(center=(160, 60))
-    rect_myip = text_surface_myip.get_rect(center=(160, 100))
-    lcd.blit(text_surface, rect)
-    lcd.blit(text_surface_hostname, rect_hostname)
-    lcd.blit(text_surface_myip, rect_myip)
-    pygame.display.update()
+        lcd.fill((0, 0, 0))
+        text_surface = font_date.render(u'%s' % timenow, True, WHITE)
+        text_surface_hostname = font_hostname.render(u'%s' % hostname, True, WHITE)
+        text_surface_myip = font_myip.render(u'%s' % myip, True, WHITE)
+        rect = text_surface.get_rect(center=(160, 200))
+        rect_hostname = text_surface_hostname.get_rect(center=(160, 60))
+        rect_myip = text_surface_myip.get_rect(center=(160, 100))
+        lcd.blit(text_surface, rect)
+        lcd.blit(text_surface_hostname, rect_hostname)
+        lcd.blit(text_surface_myip, rect_myip)
+        pygame.display.update()
 
 
+if __name__ == '__main__':
+    print ("Start")
+    main()
