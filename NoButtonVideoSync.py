@@ -4,8 +4,7 @@ import time
 
 
 # record time
-print time.strftime('%X %x %Z')
-
+print('import SYNC')
 
 # New Video File Check State
 NewVideoFile = False

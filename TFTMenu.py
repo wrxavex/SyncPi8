@@ -22,23 +22,23 @@ def read_sync_setting(filename):
 player_setting = read_sync_setting('/boot/Sync_Setting.txt')
 
 if 'ID=1' in player_setting:
-    VS.usb_video_file = 'video1.mp4'
+    usb_video_file = 'video1.mp4'
 if 'ID=2' in player_setting:
-    VS.usb_video_file = 'video2.mp4'
+    usb_video_file = 'video2.mp4'
 if 'ID=3' in player_setting:
-    VS.usb_video_file = 'video3.mp4'
+    usb_video_file = 'video3.mp4'
 if 'ID=4' in player_setting:
-    VS.usb_video_file = 'video4.mp4'
+    usb_video_file = 'video4.mp4'
 if 'ID=5' in player_setting:
-    VS.usb_video_file = 'video5.mp4'
+    usb_video_file = 'video5.mp4'
 if 'ID=6' in player_setting:
-    VS.usb_video_file = 'video6.mp4'
+    usb_video_file = 'video6.mp4'
 if 'ID=7' in player_setting:
-    VS.usb_video_file = 'video7.mp4'
+    usb_video_file = 'video7.mp4'
 if 'ID=8' in player_setting:
-    VS.usb_video_file = 'video8.mp4'
+    usb_video_file = 'video8.mp4'
 
-print VS.usb_viedo_file
+print usb_viedo_file
 
 VS.VideoFileState()
 print VS.NewVideoFile
