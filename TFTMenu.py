@@ -140,13 +140,13 @@ def main():
         tft_update(time_now, video_status)
 
 
-def tft_update(time_now, video_Status):
+def tft_update(time_now, video_status):
     lcd.fill((0, 0, 0))
     text_surface_time = font_date.render(u'%s' % time_now, True, WHITE)
     text_surface_hostname = font_hostname.render(u'%s' % hostname, True, WHITE)
     text_surface_myip = font_myip.render(u'IP:%s' % my_ip, True, WHITE)
     text_surface_setting = font_setting.render(u'%s' % player_setting, True, WHITE)
-    text_surface_have_new_video = font_have_new_video.render(u'影片：%s' % video_Status, True, WHITE)
+    text_surface_have_new_video = font_have_new_video.render(u'%s' % video_status, True, WHITE)
 
     rect = text_surface_time.get_rect(center=(160, 200))
     rect_hostname = text_surface_hostname.get_rect(center=(160, 40))
