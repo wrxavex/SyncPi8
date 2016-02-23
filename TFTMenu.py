@@ -11,7 +11,7 @@ import get_ip
 import NoButtonVideoSync as VS
 
 VS.VideoFileState()
-
+print VS.NewVideoFile
 my_ip = get_ip.myip
 
 
