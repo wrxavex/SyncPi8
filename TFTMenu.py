@@ -98,10 +98,6 @@ def button_check(k):
     global usb_video_file
     if k == 23 and button_pre != 23:
         count1 += 1
-        time_now = time.strftime('%x %X')
-        tft_update(time_now, 'Copying')
-        VS.SyncFile(usb_video_file)
-        tft_update(time_now, 'Copy Success, Video Updated')
         return count1
     if k == 22 and button_pre != 22:
         count2 += 1
@@ -123,16 +119,17 @@ def main():
         # Scan the buttons
         for (k, v) in button_map.items():
             if not GPIO.input(k):
-
+                count = button_check(k)
                 if k == 23:
                     tft_check_button(u'影片更新鈕', count)
-                    count = button_check(k)
+                    time_now = time.strftime('%x %X')
+                    tft_update(time_now, 'Copying')
+                    VS.SyncFile(usb_video_file)
+                    tft_update(time_now, 'Copy Success, Video Updated')
                 if k == 22:
                     tft_check_button(u'更改模式', count)
-                    count = button_check(k)
                 if k == 5 or k == 24:
                     tft_check_button(u'未使用此鈕', count)
-                    count = button_check(k)
         sleep(0.1)
         time_now = time.strftime('%x %X')
         tft_update(time_now, video_status)
