@@ -123,13 +123,16 @@ def main():
         # Scan the buttons
         for (k, v) in button_map.items():
             if not GPIO.input(k):
-                count = button_check(k)
+
                 if k == 23:
                     tft_check_button(u'影片更新鈕', count)
+                    count = button_check(k)
                 if k == 22:
                     tft_check_button(u'更改模式', count)
+                    count = button_check(k)
                 if k == 5 or k == 24:
                     tft_check_button(u'未使用此鈕', count)
+                    count = button_check(k)
         sleep(0.1)
         time_now = time.strftime('%x %X')
         tft_update(time_now, video_status)
@@ -144,7 +147,7 @@ def tft_check_button(k, count):
     rect = text_surface.get_rect(center=(240, 200))
     lcd.blit(text_surface, rect)
     pygame.display.update()
-    time.sleep(1)
+    time.sleep(0.5)
 
 
 def tft_update(time_now, video_status):
