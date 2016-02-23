@@ -15,35 +15,40 @@ NewVideoFile = False
 base_dir = "/home/pi/SyncPi8/"
 usb_dir = "/media/usb0/"
 local_video_file = 'SyncVideo.mp4'
-usb_video_file = 'video2.mp4'
+usb_video_file = 'video1.mp4'
 
-# getting local video size
-try:
-    videoinLocalSize = os.path.getsize(base_dir+local_video_file)
-except:
-    print 'No local video File'
-    videoinLocalSize = 0
 
-# getting usb video size
-try:
-    videoinUsbSize = os.path.getsize(usb_dir+usb_video_file)
-except:
-    print 'No Usb Video File'
-    videoinUsbSize = 0
 
-# display them
-print "Video in Usb: ", videoinUsbSize
-print "Video in Local: ", videoinLocalSize
 
 
 def VideoFileState():
     global NewVideoFile
+
+        # getting local video size
+    try:
+        videoinLocalSize = os.path.getsize(base_dir+local_video_file)
+    except:
+        print 'No local video File'
+        videoinLocalSize = 0
+
+    # getting usb video size
+    try:
+        videoinUsbSize = os.path.getsize(usb_dir+usb_video_file)
+    except:
+        print 'No Usb Video File'
+        videoinUsbSize = 0
+
+    # display them
+    print "Video in Usb: ", videoinUsbSize
+    print "Video in Local: ", videoinLocalSize
+
     if videoinLocalSize != videoinUsbSize and videoinLocalSize > 0 and videoinUsbSize > 0 :
         NewVideoFile = True
     if NewVideoFile:
         print "New Video found!"
     else:
         print "No New Video FIle Found"
+
 
 def SyncFile():
     global NewVideoFile

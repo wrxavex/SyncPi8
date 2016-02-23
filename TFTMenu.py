@@ -8,6 +8,7 @@ from time import sleep
 import RPi.GPIO as GPIO
 
 import get_ip
+import NoButtonVideoSync as VS
 
 
 my_ip = get_ip.myip
@@ -37,7 +38,6 @@ if 'ID=7' in player_setting:
 if 'ID=8' in player_setting:
     usb_video_file = 'video8.mp4'
 
-import NoButtonVideoSync as VS
 
 print usb_video_file
 
