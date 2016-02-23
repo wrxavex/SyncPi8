@@ -121,16 +121,18 @@ def main():
             if not GPIO.input(k):
                 count = button_check(k)
                 if k == 23:
-                    tft_check_button(u'影片更新鈕', count)
+                    tft_check_button(u'影片更新鈕', count
+                    sleep(1)
                     time_now = time.strftime('%x %X')
                     tft_update(time_now, 'Copying')
                     VS.SyncFile(usb_video_file)
                     tft_update(time_now, 'Copy Success, Video Updated')
+                    sleep(1)
                 if k == 22:
                     tft_check_button(u'更改模式', count)
                 if k == 5 or k == 24:
                     tft_check_button(u'未使用此鈕', count)
-        sleep(1)
+        sleep(0.1)
         time_now = time.strftime('%x %X')
         tft_update(time_now, video_status)
 
