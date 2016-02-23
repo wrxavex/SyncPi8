@@ -38,7 +38,7 @@ if 'ID=7' in player_setting:
 if 'ID=8' in player_setting:
     usb_video_file = 'video8.mp4'
 
-print usb_viedo_file
+print usb_video_file
 
 VS.VideoFileState()
 print VS.NewVideoFile
