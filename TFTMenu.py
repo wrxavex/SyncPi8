@@ -95,6 +95,7 @@ def button_check(k):
     global count3
     global count4
     global video_status
+    global usb_video_file
     if k == 23 and button_pre != 23:
         count1 += 1
         time_now = time.strftime('%x %X')
