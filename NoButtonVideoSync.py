@@ -54,15 +54,12 @@ def SyncFile(usb_video_file):
     if NewVideoFile:
         try:
             print 'Copying'
-            tft_update(time_now, 'Copying')
             shutil.copy(usb_dir+usb_video_file, base_dir+local_video_file)
             print 'Copy Success, Video Updated'
-            tft_update(time_now, 'Updated')
             NewVideoFile = False
 
             pass
         except:
-            tft_update(time_now, 'Copy Error')
             print 'Copy Error'
     else:
         'No New USB Video, Already Updated'

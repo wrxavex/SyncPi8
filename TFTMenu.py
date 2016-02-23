@@ -96,9 +96,12 @@ def button_check(k):
     global count3
     global count4
     global video_status
+    global time_now
     if k == 23 and button_pre != 23:
         count1 += 1
+        tft_update(time_now, 'Copying')
         VS.SyncFile(usb_video_file)
+        tft_update(time_now, 'Copy Success, Video Updated')
         return count1
     if k == 22 and button_pre != 22:
         count2 += 1
