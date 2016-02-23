@@ -93,6 +93,7 @@ def button_check(k):
     global count4
     if k == 23 and button_pre != 23:
         count1 += 1
+        VS.SyncFile(usb_video_file)
         return count1
     if k == 22 and button_pre != 22:
         count2 += 1
