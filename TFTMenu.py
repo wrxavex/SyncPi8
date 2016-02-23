@@ -79,7 +79,7 @@ lcd = pygame.display.set_mode((320, 240))
 lcd.fill((0, 0, 0))
 pygame.display.update()
 
-font_big = pygame.font.Font(font_file, 72)
+font_big = pygame.font.Font(font_file, 36)
 font_small = pygame.font.Font(font_file, 36)
 font_date = pygame.font.Font(font_file, 24)
 font_hostname = pygame.font.Font(font_file, 24)
@@ -128,7 +128,7 @@ def main():
                     tft_check_button(u'影片更新鈕', count)
                 if k == 22:
                     tft_check_button(u'更改模式', count)
-                else:
+                if k == 5 or k == 24:
                     tft_check_button(u'未使用此鈕', count)
         sleep(0.1)
         time_now = time.strftime('%x %X')
