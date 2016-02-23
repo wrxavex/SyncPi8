@@ -125,12 +125,15 @@ def main():
                     tft_check_button(u'影片更新鈕', count)
                     sleep(1)
                     time_now = time.strftime('%x %X')
-                    tft_update(time_now, 'Copying')
-                    VS.SyncFile(usb_video_file)
-                    tft_update(time_now, 'Copy Success, Video Updated')
-                    video_status = u'剛剛更新了影片'
+                    if VS.VideoFileState:
+                        tft_update(time_now, 'Copying')
+                        VS.SyncFile(usb_video_file)
+                        tft_update(time_now, 'Copy Success, Video Updated')
+                        video_status = u'剛剛更新了影片'
+                        sleep(1)
+                    else:
+                        tft_update(time_now, '沒有新影片')
 
-                    sleep(1)
                 if k == 22:
                     tft_check_button(u'更改模式', count)
                 if k == 5 or k == 24:
