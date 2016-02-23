@@ -122,7 +122,6 @@ def main():
             if not GPIO.input(k):
                 count = button_check(k)
                 tft_check_button(k, count)
-                print count
         sleep(0.1)
         time_now = time.strftime('%x %X')
         tft_update(time_now, video_status)
@@ -161,7 +160,6 @@ def tft_update(time_now, video_status):
     lcd.blit(text_surface_have_new_video, rect_have_new_video)
 
     pygame.display.update()
-
 
 
 if __name__ == '__main__':

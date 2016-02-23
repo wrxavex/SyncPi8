@@ -62,6 +62,7 @@ def SyncFile(usb_video_file):
 
             pass
         except:
+            tft_update(time_now, 'Copy Error')
             print 'Copy Error'
     else:
         'No New USB Video, Already Updated'
