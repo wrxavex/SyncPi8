@@ -60,6 +60,7 @@ font_date = pygame.font.Font(font_file, 24)
 font_hostname = pygame.font.Font(font_file, 24)
 font_myip = pygame.font.Font(font_file, 24)
 font_setting = pygame.font.Font(font_file,24)
+font_have_new_video = pygame.font.Font(font_file,24)
 
 
 def button_check(k):
@@ -70,6 +71,11 @@ def button_check(k):
     global count4
     if k == 23 and button_pre != 23:
         count1 += 1
+        text_surface_have_new_video = font.have_new_video.render(u'%s' % VS.NewVideoFile, True, WHITE)
+        rect_have_new_video = text_surface.get_rect(center=(160, 160))
+        lcd.blit(text_surface_have_new_video, rect_have_new_video)
+        pygame.display.update()
+        sleep(3)
         return count1
     if k == 22 and button_pre != 22:
         count2 += 1
