@@ -101,19 +101,19 @@ while True:
             button_pre = k
             sleep(3)
 
-sleep(0.1)
-timenow = time.strftime('%Z %x %X')
+    sleep(0.1)
+    timenow = time.strftime('%Z %x %X')
 
-lcd.fill((0, 0, 0))
-text_surface = font_date.render(u'%s' % timenow, True, WHITE)
-text_surface_hostname = font_hostname.render(u'%s' % hostname, True, WHITE)
-text_surface_myip = font_myip.render(u'%s' % myip, True, WHITE)
-rect = text_surface.get_rect(center=(160, 200))
-rect_hostname = text_surface_hostname.get_rect(center=(160, 60))
-rect_myip = text_surface_myip.get_rect(center=(160, 100))
-lcd.blit(text_surface, rect)
-lcd.blit(text_surface_hostname, rect_hostname)
-lcd.blit(text_surface_myip, rect_myip)
-pygame.display.update()
+    lcd.fill((0, 0, 0))
+    text_surface = font_date.render(u'%s' % timenow, True, WHITE)
+    text_surface_hostname = font_hostname.render(u'%s' % hostname, True, WHITE)
+    text_surface_myip = font_myip.render(u'%s' % myip, True, WHITE)
+    rect = text_surface.get_rect(center=(160, 200))
+    rect_hostname = text_surface_hostname.get_rect(center=(160, 60))
+    rect_myip = text_surface_myip.get_rect(center=(160, 100))
+    lcd.blit(text_surface, rect)
+    lcd.blit(text_surface_hostname, rect_hostname)
+    lcd.blit(text_surface_myip, rect_myip)
+    pygame.display.update()
 
 
