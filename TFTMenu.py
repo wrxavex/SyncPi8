@@ -115,6 +115,7 @@ def button_check(k):
 
 def main():
     global button_pre
+    global video_status
     while True:
         # Scan the buttons
         for (k, v) in button_map.items():
@@ -127,6 +128,8 @@ def main():
                     tft_update(time_now, 'Copying')
                     VS.SyncFile(usb_video_file)
                     tft_update(time_now, 'Copy Success, Video Updated')
+                    video_status = u'剛剛更新了影片'
+
                     sleep(1)
                 if k == 22:
                     tft_check_button(u'更改模式', count)
