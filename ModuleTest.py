@@ -1,8 +1,12 @@
 #!/usr/bin/env python
 
-import get_ip
 
 __author__ = "Zeng Neng-hong"
 
 
-print (def_ip)
+def main():
+    print (__author__)
+
+
+if __name__ == '__main__':
+    main()
