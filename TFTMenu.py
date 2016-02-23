@@ -129,7 +129,7 @@ def main():
                 if k == 22:
                     tft_check_button('更改模式', count)
                 else:
-                    tft_check_button(str(k).decode("utf-8"), count)
+                    tft_check_button('未使用此鈕', count)
         sleep(0.1)
         time_now = time.strftime('%x %X')
         tft_update(time_now, video_status)
