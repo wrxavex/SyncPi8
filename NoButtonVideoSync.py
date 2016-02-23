@@ -60,6 +60,7 @@ def SyncFile():
     else:
         'No New USB Video, Already Updated'
 
+
 def main():
     global NewVideoFile
     VideoFileState()
@@ -67,9 +68,11 @@ def main():
     while NewVideoFile:
         SyncFile()
 
-try:
-    main()
 
-finally:
-    print("Closed Everything. END")
-    print "\n"
+if __name__ == '__main__':
+    try:
+        main()
+
+    finally:
+        print("Closed Everything. END")
+        print "\n"
