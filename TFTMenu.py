@@ -8,6 +8,9 @@ from time import sleep
 import RPi.GPIO as GPIO
 
 import get_ip
+import NoButtonVideoSync as VS
+
+VS.main()
 
 my_ip = get_ip.myip
 
