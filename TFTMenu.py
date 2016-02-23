@@ -125,7 +125,7 @@ def main():
                     tft_check_button(u'影片更新鈕', count)
                     sleep(1)
                     time_now = time.strftime('%x %X')
-                    if VS.VideoFileState:
+                    if VS.NewVideoFile:
                         tft_update(time_now, 'Copying')
                         VS.SyncFile(usb_video_file)
                         tft_update(time_now, 'Copy Success, Video Updated')
