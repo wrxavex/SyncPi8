@@ -132,12 +132,13 @@ def main():
                         video_status = u'剛剛更新了影片'
                         sleep(1)
                     else:
-                        tft_update(time_now, '沒有新影片')
+                        tft_update(time_now, u'沒有新影片')
+                        video_status = u'沒有新影片'
 
                 if k == 22:
                     tft_check_button(u'更改模式', count)
                 if k == 5 or k == 24:
-                    tft_check_button(u'未使用此鈕', count)
+                    tft_check_button(u'未使用鈕', count)
         sleep(0.1)
         time_now = time.strftime('%x %X')
         tft_update(time_now, video_status)
