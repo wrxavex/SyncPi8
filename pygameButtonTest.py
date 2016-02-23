@@ -86,7 +86,7 @@ def button_check(k):
 while True:
     # Scan the buttons
     for (k, v) in button_map.items():
-        if GPIO.input(k) == False :
+        if GPIO.input(k) == False:
             count = button_check(k)
             print count
             lcd.fill(v)
