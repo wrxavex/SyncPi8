@@ -10,8 +10,6 @@ import RPi.GPIO as GPIO
 import get_ip
 import NoButtonVideoSync as VS
 
-VS.main()
-
 my_ip = get_ip.myip
 
 
@@ -70,7 +68,7 @@ def button_check(k):
     global count4
     if k == 23 and button_pre != 23:
         count1 += 1
-        print ('Video Sync')
+        VS.main()
         return count1
     if k == 22 and button_pre != 22:
         count2 += 1
