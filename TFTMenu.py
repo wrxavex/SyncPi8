@@ -42,9 +42,9 @@ print usb_video_file
 
 VS.VideoFileState(usb_video_file)
 if VS.NewVideoFile:
-    video_status = '有新影片'
+    video_status = u'有新影片'
 else:
-    video_status = '沒有新影片'
+    video_status = u'沒有新影片'
 
 print VS.NewVideoFile
 
