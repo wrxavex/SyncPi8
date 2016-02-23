@@ -4,7 +4,9 @@ import time
 
 
 # record time
-print('import SYNC')
+os.environ['TZ'] = 'Asia/Taipei'
+print time.strftime('%X %x %Z')
+
 
 # New Video File Check State
 NewVideoFile = False
@@ -13,6 +15,7 @@ NewVideoFile = False
 base_dir = "/home/pi/SyncPi8/"
 usb_dir = "/media/usb0/"
 local_video_file = 'SyncVideo.mp4'
+usb_video_file = 'video2.mp4'
 
 # getting local video size
 try:
