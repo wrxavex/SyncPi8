@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import sys
 import pygame
 import os
 import time
@@ -67,9 +66,11 @@ def button_check(k):
     global count4
     if k == 23 and button_pre != 23:
         count1 += 1
+        print ('Video Sync')
         return count1
     if k == 22 and button_pre != 22:
         count2 += 1
+        print ('Change Master or Slave')
         return count2
     if k == 24 and button_pre != 24:
         count3 += 1
