@@ -71,10 +71,6 @@ def button_check(k):
     global count4
     if k == 23 and button_pre != 23:
         count1 += 1
-        lcd.fill(0,0,0)
-
-        pygame.display.update()
-        sleep(3)
         return count1
     if k == 22 and button_pre != 22:
         count2 += 1
@@ -121,11 +117,11 @@ def main():
         text_surface_setting = font_setting.render(u'%s' % player_setting, True, WHITE)
         text_surface_have_new_video = font_have_new_video.render(u'New Video is %s' % VS.NewVideoFile, True, WHITE)
 
-        rect = text_surface.get_rect(center=(160, 220))
-        rect_hostname = text_surface_hostname.get_rect(center=(160, 60))
+        rect = text_surface.get_rect(center=(160, 20))
+        rect_hostname = text_surface_hostname.get_rect(center=(160, 50))
         rect_myip = text_surface_myip.get_rect(center=(160, 80))
-        rect_setting = text_surface_setting.get_rect(center=(160,100))
-        rect_have_new_video = text_surface_have_new_video.get_rect(center=(160, 120))
+        rect_setting = text_surface_setting.get_rect(center=(160,110))
+        rect_have_new_video = text_surface_have_new_video.get_rect(center=(160, 130))
 
         lcd.blit(text_surface, rect)
         lcd.blit(text_surface_hostname, rect_hostname)
