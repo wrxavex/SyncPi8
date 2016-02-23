@@ -117,11 +117,11 @@ def main():
         text_surface_setting = font_setting.render(u'%s' % player_setting, True, WHITE)
         text_surface_have_new_video = font_have_new_video.render(u'New Video is %s' % VS.NewVideoFile, True, WHITE)
 
-        rect = text_surface.get_rect(center=(160, 20))
-        rect_hostname = text_surface_hostname.get_rect(center=(160, 50))
+        rect = text_surface.get_rect(center=(160, 200))
+        rect_hostname = text_surface_hostname.get_rect(center=(160, 40))
         rect_myip = text_surface_myip.get_rect(center=(160, 80))
-        rect_setting = text_surface_setting.get_rect(center=(160,110))
-        rect_have_new_video = text_surface_have_new_video.get_rect(center=(160, 130))
+        rect_setting = text_surface_setting.get_rect(center=(160,120))
+        rect_have_new_video = text_surface_have_new_video.get_rect(center=(160, 160))
 
         lcd.blit(text_surface, rect)
         lcd.blit(text_surface_hostname, rect_hostname)
