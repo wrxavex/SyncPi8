@@ -33,8 +33,9 @@ lcd.fill((0, 0, 0))
 pygame.display.update()
 
 font_big = pygame.font.Font(font_file, 60)
-font_small = pygame.font.Font(font_file, 60)
-font_date = pygame.font.Font(font_file, 180)
+font_small = pygame.font.Font(font_file, 180)
+font_date = pygame.font.Font(font_file, 60)
+font_time = pygame.font.Font(font_file, 180)
 font_hostname = pygame.font.Font(font_file, 60)
 font_myip = pygame.font.Font(font_file, 60)
 font_setting = pygame.font.Font(font_file,60)
@@ -49,22 +50,25 @@ def main():
         # Scan the buttons
         sleep(1)
         time_now = time.strftime('%X')
-        tft_update(time_now)
+        date_now = time.strftime('%x %w')
+        tft_update(time_now, date_now)
 
 
-def tft_update(time_now):
+def tft_update(time_now, date_now):
     global count
     lcd.fill((0, 0, 0))
-    text_surface_time = font_date.render(u'%s' % time_now, True, WHITE)
+    text_surface_time = font_time.render(u'%s' % time_now, True, WHITE)
+    text_surface_date = font_date.render(u'%s' % date_now, True, WHITE)
+    #env_text = subprocess.check_output(["/home/pi/Adafruit_Python_DHT/examples/AdafruitDHT.py", "22", "23"])
+    #text_surface_env_text = font_small.render('%s' % env_text, True, WHITE)
 
-    env_text = subprocess.check_output(["/home/pi/Adafruit_Python_DHT/examples/AdafruitDHT.py", "22", "23"])
-    text_surface_env_text = font_small.render('%s' % env_text, True, WHITE)
+    rect_time = text_surface_time.get_rect(center=(400, 200))
+    rect_date = text_surface_date.get_rect(center=(400, 320))
+    #rect_env_text = text_surface_env_text.get_rect(center=(400,400))
 
-    rect = text_surface_time.get_rect(center=(400, 200))
-    rect_env_text = text_surface_env_text.get_rect(center=(400,400))
-
-    lcd.blit(text_surface_time, rect)
-    lcd.blit(text_surface_env_text, rect_env_text)
+    lcd.blit(text_surface_time, rect_time)
+    lcd.blit(text_surface_date, rect_date)
+    #lcd.blit(text_surface_env_text, rect_env_text)
 
     pygame.display.update()
 
