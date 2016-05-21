@@ -263,7 +263,7 @@ def tft_update(time_now, video_status):
     print (D6T_json["1"])
 
 
-    pygame.draw.rect(lcd, WHITE, (180,125, 40, 40), 1)
+    pygame.draw.rect(lcd, WHITE, (180,125, 40, 40), 10)
 
 
 
