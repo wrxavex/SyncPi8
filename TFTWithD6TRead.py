@@ -358,13 +358,13 @@ def tft_update(time_now, video_status):
         pygame.draw.rect(lcd, RED, (198, 140, 30, 30), 0)
 
     if (D6T_json["15"] == "1"):
-        pygame.draw.rect(lcd, RED, (93, 175`, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (93, 175, 30, 30), 0)
     if (D6T_json["14"] == "1"):
-        pygame.draw.rect(lcd, RED, (128, 175`, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (128, 175, 30, 30), 0)
     if (D6T_json["13"] == "1"):
-        pygame.draw.rect(lcd, RED, (163, 175`, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (163, 175, 30, 30), 0)
     if (D6T_json["12"] == "1"):
-        pygame.draw.rect(lcd, RED, (198, 175`, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (198, 175, 30, 30), 0)
 
     pygame.display.update()
 
