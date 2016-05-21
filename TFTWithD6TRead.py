@@ -302,7 +302,7 @@ def tft_update(time_now, video_status):
     # text_surface_setting = font_setting.render(u'%s' % player_setting, True, WHITE)
     # text_surface_have_new_video = font_have_new_video.render(u'%s' % video_status, True, WHITE)
 
-    
+
     rect_hostname = text_surface_hostname.get_rect(center=(160, 10))
     rect_myip = text_surface_myip.get_rect(center=(160, 40))
     rect_cpu_temp = text_surface_cpu_temp.get_rect(center=(80, 70))
