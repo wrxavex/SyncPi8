@@ -45,7 +45,7 @@ class MyMQTTClass:
         # if "Temperature" in msg.topic:
         #     SHT31_Temperature = str(msg.payload)
         # if "Humidity" in msg.topic:
-            SHT31_Humidity = str(msg.payload)
+        #     SHT31_Humidity = str(msg.payload)
         if "Blocks" in msg.topic:
             D6T_blocks = str(msg.payload)
 
