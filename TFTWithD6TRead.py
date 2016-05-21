@@ -264,7 +264,7 @@ def tft_update(time_now, video_status):
     print (D6T_json["1"])
 
 
-    pygame.draw.rect(lcd, RED, (180,125, 40, 40), 10)
+    Block1_Surface = pygame.draw.rect(lcd, RED, (40, 40), 10)
 
 
 
@@ -317,7 +317,7 @@ def tft_update(time_now, video_status):
     # rect_setting = text_surface_setting.get_rect(center=(160,120))
     # rect_have_new_video = text_surface_have_new_video.get_rect(center=(160, 160))
     rect_time = text_surface_time.get_rect(center=(160, 220))
-    
+    rect_Block1 = Block1_Surface.get_rect(center=(180, 125))
     lcd.blit(text_surface_hostname, rect_hostname)
     lcd.blit(text_surface_myip, rect_myip)
     lcd.blit(text_surface_cpu_temp, rect_cpu_temp)
@@ -331,6 +331,7 @@ def tft_update(time_now, video_status):
     # lcd.blit(text_surface_mqtt_D6T_Line4, rect_mqtt_D6T_Line4)
     # lcd.blit(text_surface_setting,rect_setting)
     # lcd.blit(text_surface_have_new_video, rect_have_new_video)
+    lcd.blit(Block1_Surface, rect_Block1)
 
     pygame.display.update()
 
