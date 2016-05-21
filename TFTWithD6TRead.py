@@ -261,6 +261,13 @@ def tft_update(time_now, video_status):
     D6T_blocks_list = ['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16']
     D6T_json = json.loads(D6T_blocks)
     print (D6T_json["1"])
+
+
+    pygame.draw.rect(lcd, WHITE, (180,125, 40, 40), 1)
+
+
+
+
     D6T_Line1 = ""
     D6T_Line2 = ""
     D6T_Line3 = ""
@@ -287,10 +294,10 @@ def tft_update(time_now, video_status):
     text_surface_cpu_usage = font_cpu_usage.render(u'Usage:%s' % CPU_usage, True, WHITE)
     text_surface_mqtt_temp = font_mqtt_temp.render(u'室溫:%s' % SHT31_Temperature, True, WHITE)
     text_surface_mqtt_humi = font_mqtt_humi.render(u'室濕:%s' % SHT31_Humidity, True, WHITE)
-    text_surface_mqtt_D6T_Line1 = font_mqtt_D6T.render(u'%s' % D6T_blocks_list[13:17], True, WHITE)
-    text_surface_mqtt_D6T_Line2 = font_mqtt_D6T.render(u'%s' % D6T_blocks_list[9:13], True, WHITE)
-    text_surface_mqtt_D6T_Line3 = font_mqtt_D6T.render(u'%s' % D6T_blocks_list[5:9], True, WHITE)
-    text_surface_mqtt_D6T_Line4 = font_mqtt_D6T.render(u'%s' % D6T_blocks_list[1:5], True, WHITE)
+    # text_surface_mqtt_D6T_Line1 = font_mqtt_D6T.render(u'%s' % D6T_blocks_list[13:17], True, WHITE)
+    # text_surface_mqtt_D6T_Line2 = font_mqtt_D6T.render(u'%s' % D6T_blocks_list[9:13], True, WHITE)
+    # text_surface_mqtt_D6T_Line3 = font_mqtt_D6T.render(u'%s' % D6T_blocks_list[5:9], True, WHITE)
+    # text_surface_mqtt_D6T_Line4 = font_mqtt_D6T.render(u'%s' % D6T_blocks_list[1:5], True, WHITE)
 
     # text_surface_setting = font_setting.render(u'%s' % player_setting, True, WHITE)
     # text_surface_have_new_video = font_have_new_video.render(u'%s' % video_status, True, WHITE)
@@ -302,10 +309,10 @@ def tft_update(time_now, video_status):
     rect_cpu_usage = text_surface_cpu_usage.get_rect(center=(240, 70))
     rect_mqtt_temp = text_surface_mqtt_temp.get_rect(center=(80, 100))
     rect_mqtt_humi = text_surface_mqtt_humi.get_rect(center=(240, 100))
-    rect_mqtt_D6T_Line1 = text_surface_mqtt_D6T_Line1.get_rect(center=(180,125))
-    rect_mqtt_D6T_Line2 = text_surface_mqtt_D6T_Line2.get_rect(center=(180,150))
-    rect_mqtt_D6T_Line3 = text_surface_mqtt_D6T_Line3.get_rect(center=(180,175))
-    rect_mqtt_D6T_Line4 = text_surface_mqtt_D6T_Line4.get_rect(center=(180,200))
+    # rect_mqtt_D6T_Line1 = text_surface_mqtt_D6T_Line1.get_rect(center=(180,125))
+    # rect_mqtt_D6T_Line2 = text_surface_mqtt_D6T_Line2.get_rect(center=(180,150))
+    # rect_mqtt_D6T_Line3 = text_surface_mqtt_D6T_Line3.get_rect(center=(180,175))
+    # rect_mqtt_D6T_Line4 = text_surface_mqtt_D6T_Line4.get_rect(center=(180,200))
     # rect_setting = text_surface_setting.get_rect(center=(160,120))
     # rect_have_new_video = text_surface_have_new_video.get_rect(center=(160, 160))
     rect_time = text_surface_time.get_rect(center=(160, 220))
@@ -317,10 +324,10 @@ def tft_update(time_now, video_status):
     lcd.blit(text_surface_time, rect_time)
     lcd.blit(text_surface_mqtt_temp, rect_mqtt_temp)
     lcd.blit(text_surface_mqtt_humi, rect_mqtt_humi)
-    lcd.blit(text_surface_mqtt_D6T_Line1, rect_mqtt_D6T_Line1)
-    lcd.blit(text_surface_mqtt_D6T_Line2, rect_mqtt_D6T_Line2)
-    lcd.blit(text_surface_mqtt_D6T_Line3, rect_mqtt_D6T_Line3)
-    lcd.blit(text_surface_mqtt_D6T_Line4, rect_mqtt_D6T_Line4)
+    # lcd.blit(text_surface_mqtt_D6T_Line1, rect_mqtt_D6T_Line1)
+    # lcd.blit(text_surface_mqtt_D6T_Line2, rect_mqtt_D6T_Line2)
+    # lcd.blit(text_surface_mqtt_D6T_Line3, rect_mqtt_D6T_Line3)
+    # lcd.blit(text_surface_mqtt_D6T_Line4, rect_mqtt_D6T_Line4)
     # lcd.blit(text_surface_setting,rect_setting)
     # lcd.blit(text_surface_have_new_video, rect_have_new_video)
 
