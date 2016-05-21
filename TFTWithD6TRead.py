@@ -260,8 +260,7 @@ def tft_update(time_now, video_status):
     CPU_usage = psutil.cpu_percent(interval = .5)
 
     D6T_blocks_list = ['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16']
-    D6T_json = json.loads(D6T_blocks)
-    print (D6T_json["1"])
+
 
 
 
@@ -331,8 +330,16 @@ def tft_update(time_now, video_status):
     # lcd.blit(text_surface_setting,rect_setting)
     # lcd.blit(text_surface_have_new_video, rect_have_new_video)
 
-    pygame.draw.rect(lcd, RED, (180, 125, 40, 40), 10)
-
+    D6T_json = json.loads(D6T_blocks)
+    print (D6T_json["1"])
+    if (D6T_json["1"] == 1):
+        pygame.draw.rect(lcd, RED, (16, 125, 40, 40), 1)
+    if (D6T_json["2"] == 1):
+        pygame.draw.rect(lcd, RED, (56, 125, 40, 40), 1)
+    if (D6T_json["3"] == 1):
+        pygame.draw.rect(lcd, RED, (96, 125, 40, 40), 1)
+    if (D6T_json["4"] == 1):
+        pygame.draw.rect(lcd, RED, (136, 125, 40, 40), 1)
 
     pygame.display.update()
 
