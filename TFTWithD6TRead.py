@@ -259,8 +259,7 @@ def tft_update(time_now, video_status):
     CPU_usage = psutil.cpu_percent(interval = .5)
 
     D6T_blocks_list = ['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16']
-    D6T_json = json.dumps(D6T_blocks)
-    D6T_json = json.loads(D6T_json)
+    D6T_json = json.loads(D6T_blocks)
     print (D6T_json["1"])
     D6T_Line1 = ""
     D6T_Line2 = ""
@@ -268,9 +267,9 @@ def tft_update(time_now, video_status):
     D6T_Line4 = ""
 
 
-    D6T_blocks_list = D6T_blocks.split(", ")
-    D6T_blocks_list[0] = D6T_blocks_list[0][1:]
-    D6T_blocks_list = list(reversed(D6T_blocks_list))
+    # D6T_blocks_list = D6T_blocks.split(", ")
+    # D6T_blocks_list[0] = D6T_blocks_list[0][1:]
+    # D6T_blocks_list = list(reversed(D6T_blocks_list))
 
     # print (D6T_blocks_list)
     # print (D6T_blocks_list[4:8])
