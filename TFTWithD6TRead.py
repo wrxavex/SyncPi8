@@ -24,8 +24,8 @@ except ImportError:
 
 D6T_blocks = ""
 
-SHT31_Temperature = ""
-SHT31_Humidity = ""
+# SHT31_Temperature = ""
+# SHT31_Humidity = ""
 
 class MyMQTTClass:
     def __init__(self, clientid=None):
@@ -40,11 +40,11 @@ class MyMQTTClass:
 
     def mqtt_on_message(self, mqttc, obj, msg):
         global D6T_blocks
-        global SHT31_Temperature
-        global SHT31_Humidity
-        if "Temperature" in msg.topic:
-            SHT31_Temperature = str(msg.payload)
-        if "Humidity" in msg.topic:
+        # global SHT31_Temperature
+        # global SHT31_Humidity
+        # if "Temperature" in msg.topic:
+        #     SHT31_Temperature = str(msg.payload)
+        # if "Humidity" in msg.topic:
             SHT31_Humidity = str(msg.payload)
         if "Blocks" in msg.topic:
             D6T_blocks = str(msg.payload)
@@ -253,13 +253,13 @@ def tft_updater(timenow, date_now):
 
 
 def tft_update(time_now, video_status):
-    global SHT31_Temperature
-    global SHT31_Humidity
+    # global SHT31_Temperature
+    # global SHT31_Humidity
     global D6T_blocks
 
     CPU_usage = psutil.cpu_percent(interval = .5)
 
-    D6T_blocks_list = ['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16']
+    # D6T_blocks_list = ['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16']
 
 
 
@@ -267,10 +267,10 @@ def tft_update(time_now, video_status):
 
 
 
-    D6T_Line1 = ""
-    D6T_Line2 = ""
-    D6T_Line3 = ""
-    D6T_Line4 = ""
+    # D6T_Line1 = ""
+    # D6T_Line2 = ""
+    # D6T_Line3 = ""
+    # D6T_Line4 = ""
 
 
     # D6T_blocks_list = D6T_blocks.split(", ")
@@ -291,8 +291,8 @@ def tft_update(time_now, video_status):
     text_surface_myip = font_myip.render(u'IP:%s' % my_ip, True, WHITE)
     text_surface_cpu_temp = font_cpu_temp.render(u'CPU:%s' % get_cpu_temp[5:], True, WHITE)
     text_surface_cpu_usage = font_cpu_usage.render(u'Usage:%s' % CPU_usage, True, WHITE)
-    text_surface_mqtt_temp = font_mqtt_temp.render(u'室溫:%s' % SHT31_Temperature, True, WHITE)
-    text_surface_mqtt_humi = font_mqtt_humi.render(u'室濕:%s' % SHT31_Humidity, True, WHITE)
+    # text_surface_mqtt_temp = font_mqtt_temp.render(u'室溫:%s' % SHT31_Temperature, True, WHITE)
+    # text_surface_mqtt_humi = font_mqtt_humi.render(u'室濕:%s' % SHT31_Humidity, True, WHITE)
     # text_surface_mqtt_D6T_Line1 = font_mqtt_D6T.render(u'%s' % D6T_blocks_list[13:17], True, WHITE)
     # text_surface_mqtt_D6T_Line2 = font_mqtt_D6T.render(u'%s' % D6T_blocks_list[9:13], True, WHITE)
     # text_surface_mqtt_D6T_Line3 = font_mqtt_D6T.render(u'%s' % D6T_blocks_list[5:9], True, WHITE)
@@ -306,8 +306,8 @@ def tft_update(time_now, video_status):
     rect_myip = text_surface_myip.get_rect(center=(240, 10))
     rect_cpu_temp = text_surface_cpu_temp.get_rect(center=(80, 40))
     rect_cpu_usage = text_surface_cpu_usage.get_rect(center=(240, 40))
-    rect_mqtt_temp = text_surface_mqtt_temp.get_rect(center=(80, 70))
-    rect_mqtt_humi = text_surface_mqtt_humi.get_rect(center=(240, 70))
+    # rect_mqtt_temp = text_surface_mqtt_temp.get_rect(center=(80, 70))
+    # rect_mqtt_humi = text_surface_mqtt_humi.get_rect(center=(240, 70))
     # rect_mqtt_D6T_Line1 = text_surface_mqtt_D6T_Line1.get_rect(center=(180,125))
     # rect_mqtt_D6T_Line2 = text_surface_mqtt_D6T_Line2.get_rect(center=(180,150))
     # rect_mqtt_D6T_Line3 = text_surface_mqtt_D6T_Line3.get_rect(center=(180,175))
@@ -321,8 +321,8 @@ def tft_update(time_now, video_status):
     lcd.blit(text_surface_cpu_temp, rect_cpu_temp)
     lcd.blit(text_surface_cpu_usage, rect_cpu_usage)
     lcd.blit(text_surface_time, rect_time)
-    lcd.blit(text_surface_mqtt_temp, rect_mqtt_temp)
-    lcd.blit(text_surface_mqtt_humi, rect_mqtt_humi)
+    # lcd.blit(text_surface_mqtt_temp, rect_mqtt_temp)
+    # lcd.blit(text_surface_mqtt_humi, rect_mqtt_humi)
     # lcd.blit(text_surface_mqtt_D6T_Line1, rect_mqtt_D6T_Line1)
     # lcd.blit(text_surface_mqtt_D6T_Line2, rect_mqtt_D6T_Line2)
     # lcd.blit(text_surface_mqtt_D6T_Line3, rect_mqtt_D6T_Line3)
@@ -332,40 +332,40 @@ def tft_update(time_now, video_status):
 
     D6T_json = json.loads(D6T_blocks)
     if (D6T_json["3"] == "1"):
-        pygame.draw.rect(lcd, RED, (93, 90, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (93, 45, 30, 30), 0)
     if (D6T_json["2"] == "1"):
-        pygame.draw.rect(lcd, RED, (128, 90, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (128, 45, 30, 30), 0)
     if (D6T_json["1"] == "1"):
-        pygame.draw.rect(lcd, RED, (163, 90, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (163, 45, 30, 30), 0)
     if (D6T_json["0"] == "1"):
-        pygame.draw.rect(lcd, RED, (198, 90, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (198, 45, 30, 30), 0)
 
     if (D6T_json["7"] == "1"):
-        pygame.draw.rect(lcd, RED, (93, 125, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (93, 80, 30, 30), 0)
     if (D6T_json["6"] == "1"):
-        pygame.draw.rect(lcd, RED, (128, 125, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (128, 80, 30, 30), 0)
     if (D6T_json["5"] == "1"):
-        pygame.draw.rect(lcd, RED, (163, 125, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (163, 80, 30, 30), 0)
     if (D6T_json["4"] == "1"):
-        pygame.draw.rect(lcd, RED, (198, 125, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (198, 80, 30, 30), 0)
 
     if (D6T_json["11"] == "1"):
-        pygame.draw.rect(lcd, RED, (93, 160, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (93, 115, 30, 30), 0)
     if (D6T_json["10"] == "1"):
-        pygame.draw.rect(lcd, RED, (128, 160, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (128, 115, 30, 30), 0)
     if (D6T_json["9"] == "1"):
-        pygame.draw.rect(lcd, RED, (163, 160, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (163, 115, 30, 30), 0)
     if (D6T_json["8"] == "1"):
-        pygame.draw.rect(lcd, RED, (198, 160, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (198, 115, 30, 30), 0)
 
     if (D6T_json["15"] == "1"):
-        pygame.draw.rect(lcd, RED, (93, 195, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (93, 150, 30, 30), 0)
     if (D6T_json["14"] == "1"):
-        pygame.draw.rect(lcd, RED, (128, 195, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (128, 150, 30, 30), 0)
     if (D6T_json["13"] == "1"):
-        pygame.draw.rect(lcd, RED, (163, 195, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (163, 150, 30, 30), 0)
     if (D6T_json["12"] == "1"):
-        pygame.draw.rect(lcd, RED, (198, 195, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (198, 150, 30, 30), 0)
 
     pygame.display.update()
 
