@@ -330,42 +330,41 @@ def tft_update(time_now, video_status):
     # lcd.blit(text_surface_setting,rect_setting)
     # lcd.blit(text_surface_have_new_video, rect_have_new_video)
 
-    D6T_json = json.loads(D6T_blocks)
     if (D6T_json["3"] == "1"):
-        pygame.draw.rect(lcd, RED, (93, 75, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (93, 70, 30, 30), 0)
     if (D6T_json["2"] == "1"):
-        pygame.draw.rect(lcd, RED, (128, 75, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (128, 70, 30, 30), 0)
     if (D6T_json["1"] == "1"):
-        pygame.draw.rect(lcd, RED, (163, 75, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (163, 70, 30, 30), 0)
     if (D6T_json["0"] == "1"):
-        pygame.draw.rect(lcd, RED, (198, 75, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (198, 70, 30, 30), 0)
 
     if (D6T_json["7"] == "1"):
-        pygame.draw.rect(lcd, RED, (93, 110, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (93, 105, 30, 30), 0)
     if (D6T_json["6"] == "1"):
-        pygame.draw.rect(lcd, RED, (128, 110, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (128, 105, 30, 30), 0)
     if (D6T_json["5"] == "1"):
-        pygame.draw.rect(lcd, RED, (163, 110, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (163, 105, 30, 30), 0)
     if (D6T_json["4"] == "1"):
-        pygame.draw.rect(lcd, RED, (198, 110, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (198, 105, 30, 30), 0)
 
     if (D6T_json["11"] == "1"):
-        pygame.draw.rect(lcd, RED, (93, 145, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (93, 140, 30, 30), 0)
     if (D6T_json["10"] == "1"):
-        pygame.draw.rect(lcd, RED, (128, 145, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (128, 140, 30, 30), 0)
     if (D6T_json["9"] == "1"):
-        pygame.draw.rect(lcd, RED, (163, 145, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (163, 140, 30, 30), 0)
     if (D6T_json["8"] == "1"):
-        pygame.draw.rect(lcd, RED, (198, 145, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (198, 140, 30, 30), 0)
 
     if (D6T_json["15"] == "1"):
-        pygame.draw.rect(lcd, RED, (93, 180, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (93, 175`, 30, 30), 0)
     if (D6T_json["14"] == "1"):
-        pygame.draw.rect(lcd, RED, (128, 180, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (128, 175`, 30, 30), 0)
     if (D6T_json["13"] == "1"):
-        pygame.draw.rect(lcd, RED, (163, 180, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (163, 175`, 30, 30), 0)
     if (D6T_json["12"] == "1"):
-        pygame.draw.rect(lcd, RED, (198, 180, 30, 30), 0)
+        pygame.draw.rect(lcd, RED, (198, 175`, 30, 30), 0)
 
     pygame.display.update()
 
