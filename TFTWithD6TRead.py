@@ -331,14 +331,13 @@ def tft_update(time_now, video_status):
     # lcd.blit(text_surface_have_new_video, rect_have_new_video)
 
     D6T_json = json.loads(D6T_blocks)
-    print (D6T_json["1"])
-    if (D6T_json["1"] == "1"):
+    if (D6T_json["0"] == "1"):
         pygame.draw.rect(lcd, RED, (16, 125, 40, 40), 1)
-    if (D6T_json["2"] == "1"):
+    if (D6T_json["1"] == "1"):
         pygame.draw.rect(lcd, RED, (56, 125, 40, 40), 1)
-    if (D6T_json["3"] == "1"):
+    if (D6T_json["2"] == "1"):
         pygame.draw.rect(lcd, RED, (96, 125, 40, 40), 1)
-    if (D6T_json["4"] == "1"):
+    if (D6T_json["3"] == "1"):
         pygame.draw.rect(lcd, RED, (136, 125, 40, 40), 1)
 
     pygame.display.update()
