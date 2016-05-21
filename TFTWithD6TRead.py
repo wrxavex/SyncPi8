@@ -136,6 +136,7 @@ for k in button_map.keys():
 
 # Colours
 WHITE = (255, 255, 255)
+RED = (255, 0, 0)
 
 os.putenv('SDL_FBDEV', '/dev/fb1')
 pygame.init()
@@ -263,7 +264,7 @@ def tft_update(time_now, video_status):
     print (D6T_json["1"])
 
 
-    pygame.draw.rect(lcd, WHITE, (180,125, 40, 40), 10)
+    pygame.draw.rect(lcd, RED, (180,125, 40, 40), 10)
 
 
 
