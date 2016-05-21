@@ -302,12 +302,12 @@ def tft_update(time_now, video_status):
     # text_surface_have_new_video = font_have_new_video.render(u'%s' % video_status, True, WHITE)
 
 
-    rect_hostname = text_surface_hostname.get_rect(center=(160, 10))
-    rect_myip = text_surface_myip.get_rect(center=(160, 40))
-    rect_cpu_temp = text_surface_cpu_temp.get_rect(center=(80, 70))
-    rect_cpu_usage = text_surface_cpu_usage.get_rect(center=(240, 70))
-    rect_mqtt_temp = text_surface_mqtt_temp.get_rect(center=(80, 100))
-    rect_mqtt_humi = text_surface_mqtt_humi.get_rect(center=(240, 100))
+    rect_hostname = text_surface_hostname.get_rect(center=(80, 10))
+    rect_myip = text_surface_myip.get_rect(center=(240, 10))
+    rect_cpu_temp = text_surface_cpu_temp.get_rect(center=(80, 40))
+    rect_cpu_usage = text_surface_cpu_usage.get_rect(center=(240, 40))
+    rect_mqtt_temp = text_surface_mqtt_temp.get_rect(center=(80, 70))
+    rect_mqtt_humi = text_surface_mqtt_humi.get_rect(center=(240, 70))
     # rect_mqtt_D6T_Line1 = text_surface_mqtt_D6T_Line1.get_rect(center=(180,125))
     # rect_mqtt_D6T_Line2 = text_surface_mqtt_D6T_Line2.get_rect(center=(180,150))
     # rect_mqtt_D6T_Line3 = text_surface_mqtt_D6T_Line3.get_rect(center=(180,175))
@@ -332,13 +332,40 @@ def tft_update(time_now, video_status):
 
     D6T_json = json.loads(D6T_blocks)
     if (D6T_json["0"] == "1"):
-        pygame.draw.rect(lcd, RED, (16, 125, 40, 40), 1)
+        pygame.draw.rect(lcd, RED, (16, 100, 30, 30), 1)
     if (D6T_json["1"] == "1"):
-        pygame.draw.rect(lcd, RED, (56, 125, 40, 40), 1)
+        pygame.draw.rect(lcd, RED, (56, 100, 30, 30), 1)
     if (D6T_json["2"] == "1"):
-        pygame.draw.rect(lcd, RED, (96, 125, 40, 40), 1)
+        pygame.draw.rect(lcd, RED, (96, 100, 30, 30), 1)
     if (D6T_json["3"] == "1"):
-        pygame.draw.rect(lcd, RED, (136, 125, 40, 40), 1)
+        pygame.draw.rect(lcd, RED, (136, 100, 30, 30), 1)
+
+    if (D6T_json["4"] == "1"):
+        pygame.draw.rect(lcd, RED, (16, 135, 30, 30), 1)
+    if (D6T_json["5"] == "1"):
+        pygame.draw.rect(lcd, RED, (56, 135, 30, 30), 1)
+    if (D6T_json["6"] == "1"):
+        pygame.draw.rect(lcd, RED, (96, 135, 30, 30), 1)
+    if (D6T_json["7"] == "1"):
+        pygame.draw.rect(lcd, RED, (136, 135, 30, 30), 1)
+
+    if (D6T_json["8"] == "1"):
+        pygame.draw.rect(lcd, RED, (16, 165, 30, 30), 1)
+    if (D6T_json["9"] == "1"):
+        pygame.draw.rect(lcd, RED, (56, 165, 30, 30), 1)
+    if (D6T_json["10"] == "1"):
+        pygame.draw.rect(lcd, RED, (96, 165, 30, 30), 1)
+    if (D6T_json["11"] == "1"):
+        pygame.draw.rect(lcd, RED, (136, 165, 30, 30), 1)
+
+    if (D6T_json["12"] == "1"):
+        pygame.draw.rect(lcd, RED, (16, 195, 30, 30), 1)
+    if (D6T_json["13"] == "1"):
+        pygame.draw.rect(lcd, RED, (56, 195, 30, 30), 1)
+    if (D6T_json["14"] == "1"):
+        pygame.draw.rect(lcd, RED, (96, 195, 30, 30), 1)
+    if (D6T_json["15"] == "1"):
+        pygame.draw.rect(lcd, RED, (136, 195, 30, 30), 1)
 
     pygame.display.update()
 
