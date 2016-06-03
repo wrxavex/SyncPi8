@@ -1,4 +1,7 @@
 from flask import Flask
+import os
+import time
+import subprocess
 
 app = Flask(__name__)
 
@@ -6,6 +9,9 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return "Hello World!"
+    cpu_temp_raw_data = subprocess.check_output(["/opt/vc/bin/vcgencmd", "measure_temp"])
+    get_cpu_temp = cpu_temp_raw_data.strip()
+    return get_cpu_temp
 
 
 @app.route("/video")
