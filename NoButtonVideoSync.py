@@ -76,7 +76,7 @@ def main(usb_video_file):
 
 if __name__ == '__main__':
     try:
-        main()
+        main(usb_video_file)
 
     finally:
         print("Closed Everything. END")
