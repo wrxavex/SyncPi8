@@ -15,7 +15,7 @@ NewVideoFile = False
 base_dir = "/home/pi/SyncPi8/"
 usb_dir = "/media/usb0/"
 local_video_file = 'SyncVideo.mp4'
-
+usb_video_file = 'video1.mp4'
 
 
 
