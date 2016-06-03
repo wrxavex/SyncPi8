@@ -13,7 +13,7 @@ def home():
     videostatus = VideoSync.main(VideoSync.usb_video_file)
     print("%s" % videostatus)
 
-    return videostatus
+    return 'VideoStatus:%s ' % videostatus
 
 
 @app.route("/video")
