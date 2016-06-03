@@ -69,7 +69,7 @@ def SyncFile(usb_video_file):
 def main(usb_video_file):
     global NewVideoFile
     VideoFileState(usb_video_file)
-    print NewVideoFile
+    # print NewVideoFile
     while NewVideoFile:
         SyncFile(usb_video_file)
 
