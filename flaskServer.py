@@ -4,12 +4,12 @@ app = Flask(__name__)
 
 
 @app.route("/")
-def hello():
+def home():
     return "Hello World!"
 
 
 @app.route("/video")
-def hello():
+def video():
     return "Getting Video Sync Status!"
 
 if __name__ == "__main__":
