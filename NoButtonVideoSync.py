@@ -66,12 +66,12 @@ def SyncFile(usb_video_file):
         return 'No New USB Video, Already Updated'
 
 
-def main():
+def main(usb_video_file):
     global NewVideoFile
-    VideoFileState()
+    VideoFileState(usb_video_file)
     print NewVideoFile
     while NewVideoFile:
-        SyncFile()
+        SyncFile(usb_video_file)
 
 
 if __name__ == '__main__':
