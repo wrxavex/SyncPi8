@@ -8,9 +8,9 @@ ip_config = ip_config_file.read()
 print('ip config: %s' % ip_config)
 ip_config_file.close()
 
-print(0 < int(id_to_set) > 255)
+print(0 < int(id_to_set) < 255)
 
-if 0 < int(id_to_set) > 255:
+if 0 < int(id_to_set) < 255:
     new_ip_config = ip_config.replace('replace_id_here', 'id_to_set')
     print('new ip config: %s'% new_ip_config)
     ip_set_file = open('/etc/dhcpcd.conf', 'w')
