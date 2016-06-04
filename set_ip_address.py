@@ -2,7 +2,7 @@ id_file = open('/boot/set_id', 'r')
 id_to_set = int(id_file.read())
 id_file.close()
 
-ip_config_file = open('/etc/dhcpcd.conf', 'r')
+ip_config_file = open('/home/pi/ip_conf_sample', 'r')
 ip_config = ip_config_file.read()
 ip_config_file.close()
 
