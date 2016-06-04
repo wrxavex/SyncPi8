@@ -14,7 +14,7 @@ def home(name=None):
     get_cpu_temp = cpu_temp_raw_data.strip()
     videostatus = VideoSync.main(VideoSync.usb_video_file)
     print ("name before: %s " % name)
-    name = VideoSync.VideoFileState(usb_video_file).result
+    name = VideoSync.result
     print ("name after: %s" % name)
     return render_template('home.html', name=name)
 
