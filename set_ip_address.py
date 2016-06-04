@@ -3,7 +3,7 @@ id_to_set = id_file.read().strip()
 print('id to set: %s' % id_to_set)
 id_file.close()
 
-ip_config_file = open('ip_conf_sample', 'r')
+ip_config_file = open('/home/pi/SyncPi8/ip_conf_sample', 'r')
 ip_config = ip_config_file.read()
 ip_config_file.close()
 
