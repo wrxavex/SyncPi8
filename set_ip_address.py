@@ -1,4 +1,4 @@
-id_file = open('/boot/set_id', 'r')
+id_file = open('set_id', 'r')
 id_to_set = int(id_file.read().strip())
 print('id to set: %d' % id_to_set)
 id_file.close()
