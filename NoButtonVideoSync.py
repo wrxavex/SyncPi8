@@ -45,6 +45,7 @@ def VideoFileState(usb_video_file):
         print "New Video found!"
     else:
         print "No New Video FIle Found"
+        result = "No New Video File Found"
         return "No New Video File Found"
 
 
