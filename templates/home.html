@@ -36,5 +36,13 @@
     <h1>Video USB Size: no data</h1>
 {% endif %}
 
+{% if sync_status %}
+    <h1>Video Play Ststus:  {{ sync_status }}</h1>
+{% else %}
+    <h1>Video Play Ststus: no data</h1>
+{% endif %}
+
+
+sync_status
 </body>
 </html>
