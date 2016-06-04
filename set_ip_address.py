@@ -1,6 +1,6 @@
 id_file = open('/boot/set_id', 'r')
 id_to_set = id_file.read()
-print('id to set: %d' % id_to_set)
+print('id to set: %s' % id_to_set)
 id_file.close()
 
 ip_config_file = open('/home/pi/ip_conf_sample', 'r')
