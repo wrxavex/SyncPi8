@@ -45,7 +45,7 @@ def VideoFileState(usb_video_file):
         print "New Video found!"
     else:
         print "No New Video FIle Found"
-        return 'No New Video File Found'
+        return "No New Video File Found"
 
 
 def SyncFile(usb_video_file):
@@ -63,7 +63,7 @@ def SyncFile(usb_video_file):
         except:
             print 'Copy Error'
     else:
-        print ('No New USB Video')
+
         return 'No New USB Video, Already Updated'
 
 
