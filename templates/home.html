@@ -5,10 +5,16 @@
     <title>FLASK HOME</title>
 </head>
 <body>
-{% if name %}
-    <h1>Video Status:  {{ name }}</h1>
+{% if result %}
+    <h1>CPU TEMP:  {{ cputemp }}</h1>
 {% else %}
-    <h1>Video Status: no data</h1>
+    <h1>Video cputemp: no value</h1>
+{% endif %}
+
+{% if result %}
+    <h1>Video Status:  {{ result }}</h1>
+{% else %}
+    <h1>Video Status: no result</h1>
 {% endif %}
 
 {% if videoinLocalSize %}
