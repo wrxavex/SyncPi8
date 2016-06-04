@@ -13,6 +13,8 @@ def home(name=None, cputemp=None, result=None, videoinLocalSize=None, videoinUsb
     cpu_temp_raw_data = subprocess.check_output(["/opt/vc/bin/vcgencmd", "measure_temp"])
     try:
         sync_status_result = subprocess.check_output(['sh', 'check_omx_status.sh'])
+    except subprocess.CalledProcessError as e:
+        sync_status_result = "Not Running"
     # sync_status_result = subprocess.Popen(['sh', 'check_omx_status.sh'])
     get_cpu_temp = cpu_temp_raw_data.strip()
     VideoSync.main(VideoSync.usb_video_file)
