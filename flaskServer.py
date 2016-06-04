@@ -13,7 +13,7 @@ def home(name=None, cputemp=None, result=None, videoinLocalSize=None, videoinUsb
     cpu_temp_raw_data = subprocess.check_output(["/opt/vc/bin/vcgencmd", "measure_temp"])
     sync_status_result = subprocess.check_output(["./check_omx_status.sh"])
     get_cpu_temp = cpu_temp_raw_data.strip()
-    videostatus = VideoSync.main(VideoSync.usb_video_file)
+    VideoSync.main(VideoSync.usb_video_file)
     result = VideoSync.result
     videoinLocalSize = VideoSync.videoinLocalSize
     videoinUsbSize = VideoSync.videoinUsbSize
