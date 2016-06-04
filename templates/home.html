@@ -6,9 +6,22 @@
 </head>
 <body>
 {% if name %}
-    <h1>Hello {{ name }}</h1>
+    <h1>Video Status:  {{ name }}</h1>
 {% else %}
-    <h1>Hello no data</h1>
+    <h1>Video Status: no data</h1>
 {% endif %}
+
+{% if videoinLocalSize %}
+    <h1>Video Local Size:  {{ videoinLocalSize }}</h1>
+{% else %}
+    <h1>Video Local Size: no data</h1>
+{% endif %}
+
+{% if videoinUsbSize %}
+    <h1>Video USB Size:  {{ videoinUsbSize }}</h1>
+{% else %}
+    <h1>Video USB Size: no data</h1>
+{% endif %}
+
 </body>
 </html>

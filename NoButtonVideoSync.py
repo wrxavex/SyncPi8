@@ -17,11 +17,14 @@ usb_dir = "/media/usb0/"
 local_video_file = 'SyncVideo.mp4'
 usb_video_file = 'video1.mp4'
 result = ""
-
+videoinLocalSize = 0
+videoinUsbSize = 0
 
 def VideoFileState(usb_video_file):
     global NewVideoFile
     global result
+    global videoinLocalSize
+    global videoinUsbSize
         # getting local video size
     try:
         videoinLocalSize = os.path.getsize(base_dir+local_video_file)
