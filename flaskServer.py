@@ -7,7 +7,6 @@ import NoButtonVideoSync as VideoSync
 
 app = Flask(__name__)
 
-@app.route("/")
 @app.route("/<name>")
 def home(name=None):
     cpu_temp_raw_data = subprocess.check_output(["/opt/vc/bin/vcgencmd", "measure_temp"])
