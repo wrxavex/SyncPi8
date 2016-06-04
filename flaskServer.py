@@ -11,7 +11,7 @@ app = Flask(__name__)
 @app.route("/<name>")
 def home(name=None):
     cpu_temp_raw_data = subprocess.check_output(["/opt/vc/bin/vcgencmd", "measure_temp"])
-    get_cpu_temp = cpu_temp_raw_data.strip
+    get_cpu_temp = cpu_temp_raw_data.strip()
     videostatus = VideoSync.main(VideoSync.usb_video_file)
     name = get_cpu_temp
     return render_template('home.html', name=name)
