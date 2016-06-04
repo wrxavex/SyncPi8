@@ -14,7 +14,7 @@ def home(name=None):
     get_cpu_temp = cpu_temp_raw_data.strip
     videostatus = VideoSync.main(VideoSync.usb_video_file)
 
-    return render_template('home.html', name=name)
+    return render_template('home.html', name=get_cpu_temp)
 
 
 @app.route("/video")
