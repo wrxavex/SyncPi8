@@ -19,7 +19,7 @@ if 0 < int(id_to_set) > 255:
 else:
     print('id not a valid number')
 
-pritn('script done')
+print('script done')
 
 
 
