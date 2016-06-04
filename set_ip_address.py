@@ -12,7 +12,6 @@ print(0 < id_to_set < 255)
 
 if 200 < id_to_set < 255:
     new_ip_config = ip_config.replace('replace_id_here', id_to_set)
-    print('new ip config: %s'% new_ip_config)
     ip_set_file = open('/etc/dhcpcd.conf', 'w')
     ip_set_file.write(new_ip_config)
     ip_set_file.close()
