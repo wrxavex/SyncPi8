@@ -49,10 +49,10 @@ def tft_update(time_now):
 
 
 def main():
-
-    sleep(0.1)
-    time_now = time.strftime('%x %X')
-    tft_update(time_now)
+    while
+        sleep(0.1)
+        time_now = time.strftime('%x %X')
+        tft_update(time_now)
 
 
 if __name__ == '__main__':
