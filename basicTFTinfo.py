@@ -49,7 +49,7 @@ def tft_update(time_now):
 
 
 def main():
-    while
+    while True:
         sleep(0.1)
         time_now = time.strftime('%x %X')
         tft_update(time_now)
