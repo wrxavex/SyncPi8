@@ -12,6 +12,7 @@ import NoButtonVideoSync as VS
 
 my_ip = get_ip.myip
 
+
 def read_sync_setting(filename):
     f = open(filename, 'r+w')
     return f.read().split()

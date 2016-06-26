@@ -6,6 +6,10 @@ import time
 import platform
 from time import sleep
 
+import get_ip
+
+my_ip = get_ip.myip
+
 hostname = platform.node()
 os.environ['TZ'] = 'Asia/Taipei'
 time.tzset()
