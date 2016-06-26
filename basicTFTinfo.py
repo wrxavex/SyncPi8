@@ -45,8 +45,6 @@ def tft_update(time_now):
 
 
 def main():
-    global button_pre
-    global video_status
 
     sleep(0.1)
     time_now = time.strftime('%x %X')
