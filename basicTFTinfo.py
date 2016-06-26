@@ -39,7 +39,7 @@ def tft_update(time_now):
 
     rect = text_surface_time.get_rect(center=(160, 120))
     rect_hostname = text_surface_hostname.get_rect(center=(160, 18))
-    rect_myip = text_surface_myip.get_rect(center=(160, 36))
+    rect_myip = text_surface_myip.get_rect(center=(160, 48))
 
     lcd.blit(text_surface_time, rect)
     lcd.blit(text_surface_hostname, rect_hostname)
