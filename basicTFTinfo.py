@@ -26,7 +26,7 @@ WHITE = (255, 255, 255)
 
 font_big = pygame.font.Font(font_file, 36)
 font_small = pygame.font.Font(font_file, 36)
-font_date = pygame.font.Font(font_file, 64)
+font_date = pygame.font.Font(font_file, 72)
 font_hostname = pygame.font.Font(font_file, 24)
 font_myip = pygame.font.Font(font_file, 24)
 
@@ -38,8 +38,8 @@ def tft_update(time_now):
     text_surface_myip = font_myip.render(u'IP:%s' % my_ip, True, WHITE)
 
     rect = text_surface_time.get_rect(center=(160, 120))
-    rect_hostname = text_surface_hostname.get_rect(center=(160, 30))
-    rect_myip = text_surface_myip.get_rect(center=(160, 60))
+    rect_hostname = text_surface_hostname.get_rect(center=(160, 18))
+    rect_myip = text_surface_myip.get_rect(center=(160, 36))
 
     lcd.blit(text_surface_time, rect)
     lcd.blit(text_surface_hostname, rect_hostname)
