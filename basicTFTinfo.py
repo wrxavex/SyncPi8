@@ -18,6 +18,7 @@ lcd = pygame.display.set_mode((320, 240))
 lcd.fill((255, 0, 0))
 pygame.display.update()
 
+WHITE = (255, 255, 255)
 
 font_big = pygame.font.Font(font_file, 36)
 font_small = pygame.font.Font(font_file, 36)
