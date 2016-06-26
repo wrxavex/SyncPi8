@@ -5,8 +5,6 @@ import os
 import time
 import platform
 from time import sleep
-import RPi.GPIO as GPIO
-
 
 hostname = platform.node()
 os.environ['TZ'] = 'Asia/Taipei'
@@ -19,3 +17,44 @@ pygame.mouse.set_visible(False)
 lcd = pygame.display.set_mode((320, 240))
 lcd.fill((255, 0, 0))
 pygame.display.update()
+
+
+font_big = pygame.font.Font(font_file, 36)
+font_small = pygame.font.Font(font_file, 36)
+font_date = pygame.font.Font(font_file, 24)
+font_hostname = pygame.font.Font(font_file, 24)
+font_myip = pygame.font.Font(font_file, 24)
+
+
+def tft_update(time_now, video_status):
+    lcd.fill((0, 0, 0))
+    text_surface_time = font_date.render(u'%s' % time_now, True, WHITE)
+    text_surface_hostname = font_hostname.render(u'%s' % hostname, True, WHITE)
+    text_surface_myip = font_myip.render(u'IP:%s' % my_ip, True, WHITE)
+
+    rect = text_surface_time.get_rect(center=(160, 200))
+    rect_hostname = text_surface_hostname.get_rect(center=(160, 40))
+    rect_myip = text_surface_myip.get_rect(center=(160, 80))
+
+    lcd.blit(text_surface_time, rect)
+    lcd.blit(text_surface_hostname, rect_hostname)
+    lcd.blit(text_surface_myip, rect_myip)
+
+    pygame.display.update()
+
+
+def main():
+    global button_pre
+    global video_status
+
+    sleep(0.1)
+    time_now = time.strftime('%x %X')
+    tft_update(time_now, video_status)
+
+
+
+
+if __name__ == '__main__':
+    print ("Display info")
+    main()
+
